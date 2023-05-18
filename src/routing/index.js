@@ -6,16 +6,16 @@ import {
   Text,
   TouchableOpacity,
   View,
-  // Image,
+  Image,
 } from "react-native";
-import { Main } from "../screens";
-import { NavigationContainer } from "@react-navigation/native";
+import { Main, Splash, StaycationDetail } from "../screens";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-// import { BottomNavigation } from "../components/molecule/BottomNavigation";
 import { NativeBaseProvider } from "native-base";
-import { colors, hp } from "../constants";
+import { colors, hp, wp } from "../constants";
 import TabItem from "../components/atoms/TabItem";
+import { Gap } from "../components/atoms";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -105,44 +105,44 @@ export const Routes = () => {
     <NativeBaseProvider>
       <NavigationContainer>
         <SafeAreaView style={styles.SafeAreaView}>
-          {/* <StatusBar backgroundColor={colors.blue2 } /> */}
           <Stack.Navigator
             initialRouteName="Splash"
             screenOptions={({ route }) => ({
               headerTitle: (props) => <HeaderTitle route={route} />,
               headerStyle: {
                 backgroundColor: colors.blue2,
+                height: 60,
               },
-              headerTintColor: colors.white,
             })}
           >
             <Stack.Screen
               name="MainApp"
-              component={HomeScreen}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Splash"
               component={MainApp}
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="SplashProfile"
-              component={ProfileScreen}
+              name="Splash"
+              component={Splash}
               options={{ headerShown: false }}
             />
             {/* <Stack.Screen
-                name="Introduction"
-                component={Introduction}
-                options={{headerShown: false}}
-              />
-              <Stack.Screen
-                name="HotelDetail"
-                component={HotelDetailScreen}
-                options={{
-                  headerShown: true,
-                }}
-              /> */}
+              name="SplashProfile"
+              component={ProfileScreen}
+              options={{ headerShown: false }}
+            /> */}
+            {/* <Stack.Screen
+              name="Introduction"
+              component={Introduction}
+              options={{ headerShown: false }}
+            /> */}
+            <Stack.Screen
+              name="StaycationDetail"
+              component={StaycationDetail}
+              options={{
+                headerShown: true,
+                headerLeft: null,
+              }}
+            />
           </Stack.Navigator>
         </SafeAreaView>
       </NavigationContainer>
@@ -153,16 +153,24 @@ export const Routes = () => {
 function HeaderTitle({ route }) {
   const data = getHeaderTitle(route);
 
+  const navigation = useNavigation();
+
+  const goBackPage = () => {
+    navigation.goBack();
+  };
+
   return (
-    <View
-      style={{
-        width: "100%",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "flex-start",
-      }}
-    >
-      <View style={{ width: "55%" }}>
+    <View style={styles.header}>
+      <TouchableOpacity onPress={goBackPage}>
+        <Image
+          source={require("../assets/icon/png/arrow-back.png")}
+          style={{
+            width: 35,
+            height: 35,
+          }}
+        />
+      </TouchableOpacity>
+      <View style={{ width: "65%", marginLeft: 8 }}>
         <Text style={{ fontSize: 14, fontWeight: "bold", color: colors.white }}>
           {data.name}
           <Text
@@ -173,19 +181,20 @@ function HeaderTitle({ route }) {
           </Text>
         </Text>
       </View>
-      <View style={{ flexDirection: "row" }}>
+      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <Image
-          source={require("../assets/icon/png/traveloka-icon.png")}
+          source={require("../assets/icon/png/bookmark.png")}
           style={{
-            width: 40,
-            height: 40,
+            width: 35,
+            height: 35,
           }}
         />
+        <Gap width={wp(6)} />
         <Image
-          source={require("../assets/icon/png/traveloka-icon.png")}
+          source={require("../assets/icon/png/treepoint.png")}
           style={{
-            width: 40,
-            height: 40,
+            width: 20,
+            height: 35,
           }}
         />
       </View>
@@ -201,7 +210,7 @@ function getHeaderTitle(route) {
   switch (routeName) {
     case "Home":
       return "Home";
-    case "HotelDetail":
+    case "StaycationDetail":
       const { name } = route.params?.item;
       const { location } = route.params?.item;
       return { name, location };
@@ -210,29 +219,10 @@ function getHeaderTitle(route) {
   }
 }
 
-function HomeScreen() {
-  return (
-    <View style={styles.background}>
-      <Text style={{ marginTop: 20, color: "#000" }}>Home Screen</Text>
-    </View>
-  );
-}
-
-function ProfileScreen() {
-  return (
-    <View style={styles.background}>
-      <Text style={{ marginTop: 20, color: "#000" }}>Profile Screen</Text>
-    </View>
-  );
-}
-
 const styles = StyleSheet.create({
   SafeAreaView: {
     flex: 1,
-    width: 375,
-  },
-  background: {
-    backgroundColor: "#fff",
+    width: 390,
   },
   container: (seller) => ({
     flexDirection: "row",
@@ -246,6 +236,14 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 2,
   }),
+  header: {
+    width: "100%",
+    height: 60,
+    marginTop: -45,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
   containerTabItem: {
     alignItems: "center",
     backgroundColor: colors.white,
@@ -258,7 +256,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.37,
     shadowRadius: 7.49,
-
     elevation: 12,
   },
   text: (active) => ({

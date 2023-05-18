@@ -4,10 +4,10 @@ import { Main } from "./Main";
 // import { Pesanan } from "./Pesanan";
 // import { Simpan } from "./Simpan";
 // import { Inbox } from "./Inbox";
-// import { Splash } from "./Splash";
+import { Splash } from "./Splash";
 // import { SplashProfile } from "./SplashProfile";
 // import { Introduction } from "./Introduction";
-// import HotelDetailScreen from "./HotelDetailScreen";
+import StaycationDetail from "./StaycationDetail";
 
 export {
   //   Profile,
@@ -16,8 +16,8 @@ export {
   //   Pesanan,
   //   Simpan,
   //   Inbox,
-  //   Splash,
+  Splash,
   //   SplashProfile,
   //   Introduction,
-  //   HotelDetailScreen,
+  StaycationDetail,
 };
