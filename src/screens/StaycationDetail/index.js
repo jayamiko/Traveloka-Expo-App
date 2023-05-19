@@ -254,7 +254,6 @@ const StaycationDetail = ({ route, navigation }) => {
               <Map />
 
               {/* Property Area */}
-              {/* <TabViewComponent /> */}
               <TabView
                 navigationState={{ index, routes }}
                 renderScene={renderScene}
@@ -291,7 +290,7 @@ const StaycationDetail = ({ route, navigation }) => {
               <SubTitle text="Kebijakan Properti" />
               <AlertNotification
                 text="Pastikan Anda mengetahui waktu yang telah ditentukan untuk check-in & check-out"
-                icon={require("../../assets/icon/png/warning.png")}
+                icon={require("../../assets/icon/png/info.png")}
               />
               <View style={[styles.rowStart, { paddingHorizontal: wp(2) }]}>
                 <Image

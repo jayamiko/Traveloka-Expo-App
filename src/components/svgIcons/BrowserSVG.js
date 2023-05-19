@@ -7,8 +7,8 @@ function BrowserSVG() {
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 192 192"
-      width="800px"
-      height="800px"
+      width="28"
+      height="28"
     >
       <Circle cx={96} cy={96} r={74} stroke="#E75480" strokeWidth={12} />
       <Ellipse

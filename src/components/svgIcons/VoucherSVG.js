@@ -9,7 +9,8 @@ function VoucherSVG() {
       stroke="currentColor"
       strokeLinecap="round"
       strokeWidth={0}
-      {...props}
+      width="24"
+      height="24"
     >
       <G fill="none" fillRule="evenodd" stroke="none">
         <Path d="M0 0h24v24H0z" />

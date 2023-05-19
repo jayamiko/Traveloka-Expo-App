@@ -9,8 +9,8 @@ import {
 } from "react-native";
 import { colors, hp, visit, wp } from "../../constants";
 import { ButtonIconOnly, Gap } from "../../components/atoms";
+import { Card, Money, Menu, Header, Iklan } from "../../components/molecule";
 import ArrowRightSVG from "../../components/svgIcons/ArrowRightSVG";
-import { Card } from "../../components/molecule";
 
 export const Main = ({ navigation }) => {
   const [categoryActive, setCategoryActive] = useState("Xperience");
@@ -31,10 +31,18 @@ export const Main = ({ navigation }) => {
   }
   return (
     <View style={styles.page}>
-      <ScrollView style={styles.scrollViewArea}>
+      <Header
+        placeholder={"Cari item, destinasi, fitur..."}
+        onPress={() => navigation.navigate("Simpan")}
+      />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        alwaysBounceVertical={false}
+        disableScrollViewPanResponder={true}
+      >
         <View style={styles.topShape}></View>
         <View style={styles.pageView}>
-          {/* <View style={styles.containerRow}>
+          <View style={styles.containerRow}>
             <View style={styles.box}>
               <Text style={styles.textBold}>Hai, Jaya Miko!</Text>
               <View style={styles.row}>
@@ -44,14 +52,8 @@ export const Main = ({ navigation }) => {
           </View>
           <Menu />
           <Gap height={hp(3)} />
-          <View
-            style={{
-              width: "100%",
-              height: 10,
-              backgroundColor: colors.concrete,
-            }}
-          />
-          <Gap height={hp(3)} /> */}
+          <View style={styles.break} />
+          <Gap height={hp(3)} />
           {/* HOTELS VISIT */}
           <View style={styles.hotel}>
             <View style={styles.rowBetween}>
@@ -136,12 +138,10 @@ export const Main = ({ navigation }) => {
           </View>
           <Gap height={hp(3)} />
           {/* ATRACTION VISIT */}
-          {/* <View style={styles.hotel}>
+          <View style={styles.hotel}>
             <View style={styles.rowBetween}>
               <Text style={styles.title}>Atraksi wajib dikunjungi</Text>
-              <ButtonIconOnly
-                icon={<ArrowRight width={wp(4.5)} height={wp(4.5)} />}
-              />
+              <ButtonIconOnly icon={<ArrowRightSVG />} />
             </View>
           </View>
           <View>
@@ -156,7 +156,7 @@ export const Main = ({ navigation }) => {
                     key={index}
                     item={item}
                     onPress={() =>
-                      navigation.navigate("HotelDetail", {
+                      navigation.navigate("StaycationDetail", {
                         item: item,
                       })
                     }
@@ -169,23 +169,21 @@ export const Main = ({ navigation }) => {
           <Image
             source={require("../../assets/ilustrasi/promo-lebaran.jpg")}
             style={styles.lebaranBanner}
-          /> */}
+          />
           <Gap height={hp(3)} />
           {/* IKLAN BUAVITA */}
-          {/* <IklanBanner
+          <Iklan
             title="Saatnya Mudik, Saatnya Buavita"
             sponsor={true}
             sponsorName="Buavita"
             image={require("../../assets/ilustrasi/iklan-buavita.jpg")}
-          /> */}
+          />
           <Gap height={hp(3)} />
           {/* PLANE VISIT */}
-          {/* <View style={styles.hotel}>
+          <View style={styles.hotel}>
             <View style={styles.rowBetween}>
               <Text style={styles.title}>Pilihan penerbangan untuk Anda</Text>
-              <ButtonIconOnly
-                icon={<ArrowRight width={wp(4.5)} height={wp(4.5)} />}
-              />
+              <ButtonIconOnly icon={<ArrowRightSVG />} />
             </View>
           </View>
           <View>
@@ -200,7 +198,7 @@ export const Main = ({ navigation }) => {
                     key={index}
                     item={item}
                     onPress={() =>
-                      navigation.navigate("HotelDetail", {
+                      navigation.navigate("StaycationDetail", {
                         item: item,
                       })
                     }
@@ -208,15 +206,15 @@ export const Main = ({ navigation }) => {
                 );
               })}
             </ScrollView>
-          </View> */}
+          </View>
           <Gap height={hp(3)} />
           {/* IKLAN TOUR */}
-          {/* <IklanBanner
+          <Iklan
             title="Seru-Seruan di Singapura & Mal..."
             sponsor={false}
             image={require("../../assets/ilustrasi/iklan-tour.jpg")}
           />
-          <Gap height={hp(3)} /> */}
+          <Gap height={hp(3)} />
         </View>
       </ScrollView>
     </View>
@@ -230,9 +228,6 @@ const styles = StyleSheet.create({
   },
   container: {
     paddingHorizontal: wp(3),
-  },
-  scrollViewArea: {
-    zIndex: 10,
   },
   pageView: {
     position: "relative",
@@ -304,13 +299,18 @@ const styles = StyleSheet.create({
     width: wp(100),
     height: hp(5),
   },
+  break: {
+    width: "100%",
+    height: 10,
+    backgroundColor: colors.concrete,
+  },
   hotel: {
     justifyContent: "center",
     paddingHorizontal: wp(2),
   },
   lebaranBanner: {
     width: "100%",
-    height: 480,
+    height: 500,
   },
   iklanBanner: {
     width: "100%",
