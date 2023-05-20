@@ -222,7 +222,7 @@ function getHeaderTitle(route) {
 const styles = StyleSheet.create({
   SafeAreaView: {
     flex: 1,
-    width: 390,
+    width: 395,
   },
   container: (seller) => ({
     flexDirection: "row",

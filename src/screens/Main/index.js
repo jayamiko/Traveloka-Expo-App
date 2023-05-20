@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Image,
   ScrollView,
@@ -29,6 +29,11 @@ export const Main = ({ navigation }) => {
       setDataFilter(dataXperience);
     }
   }
+
+  useEffect(() => {
+    handleFilter(categoryActive);
+  }, [categoryActive]);
+
   return (
     <View style={styles.page}>
       <Header
@@ -73,7 +78,7 @@ export const Main = ({ navigation }) => {
                         : colors.concrete,
                   },
                 ]}
-                onPress={() => handleFilter("Xperience")}
+                onPress={() => setCategoryActive("Xperience")}
               >
                 <Text
                   style={[
@@ -99,7 +104,7 @@ export const Main = ({ navigation }) => {
                         : colors.concrete,
                   },
                 ]}
-                onPress={() => handleFilter("Hotel")}
+                onPress={() => setCategoryActive("Hotel")}
               >
                 <Text
                   style={[
