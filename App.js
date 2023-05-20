@@ -1,7 +1,8 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Routes } from "./src/routing";
 import "./ignoreWarnings";
+import { AppRegistry } from "react-native";
 
 export default function App() {
   return (
@@ -19,3 +20,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+
+AppRegistry.registerComponent("MyApp", () => App);

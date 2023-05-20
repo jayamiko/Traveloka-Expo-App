@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { HStack } from "native-base";
 import { colors, wp } from "../../../constants";
 
-function FooterTab({ drawer, item, navigation }) {
+function FooterTab({ drawer, item }) {
   return (
     <HStack bg="white" style={styles.footer} safeAreaBottom shadow={10}>
       <View style={styles.containerFooter}>
@@ -15,12 +15,7 @@ function FooterTab({ drawer, item, navigation }) {
         <View style={styles.button}>
           <TouchableOpacity
             style={styles.buttonRoom}
-            // onPress={() => drawer.current.openDrawer()}
-            onPress={() =>
-              navigation.navigate("Splash", {
-                item: item,
-              })
-            }
+            onPress={() => drawer.current.openDrawer()}
           >
             <Text style={styles.textButton}>Pilih Kamar</Text>
           </TouchableOpacity>

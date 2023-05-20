@@ -1,4 +1,4 @@
-// import Circle from "./Circle";
+import ImageSlider from "./ImageSlider";
 import Carousel from "./Carousel";
 import Card from "./Card";
 import Iklan from "./Iklan";
@@ -12,7 +12,7 @@ import { Menu } from "./Menu";
 import FooterTab from "./FooterTab";
 
 export {
-  //   Circle,
+  ImageSlider,
   Carousel,
   Card,
   Iklan,

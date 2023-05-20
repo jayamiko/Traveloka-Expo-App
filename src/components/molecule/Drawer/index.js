@@ -1,20 +1,14 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { colors, hp, wp } from "../../../constants";
-// import Divide from "../../atoms/Divide/Divide";
-// import ImageCarousel from "../Carousel/ImageCarousel";
+import { Divide } from "../../atoms";
 import { IconText } from "../../atoms";
+import ImageSlider from "../ImageSlider/index";
 
 function Drawer({ item, navigation }) {
-  const images = [
-    "https://source.unsplash.com/1024x768/?nature",
-    "https://source.unsplash.com/1024x768/?water",
-    "https://source.unsplash.com/1024x768/?girl",
-    "https://source.unsplash.com/1024x768/?tree",
-  ];
   return (
     <View style={styles.navigationContainer}>
-      {/* <Divide /> */}
+      <Divide />
       <View style={styles.boxTags}>
         <View style={styles.tag}>
           <Text style={styles.tagText}>Pembatalan Gratis</Text>
@@ -24,33 +18,28 @@ function Drawer({ item, navigation }) {
         </View>
       </View>
       <View style={styles.announcement}>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <View style={{ flexDirection: "row", width: "85%" }}>
-            <Image
-              source={require("../../../assets/icon/png/traveloka-icon.png")}
-              style={styles.iconRefund}
-            />
-            <Text style={{ color: colors.white, marginHorizontal: wp(2) }}>
-              Tip: Tambah Jaminan Refund. Jika pesanan harus dibatalkan, Anda
-              tetap dapat 80% refund
-            </Text>
+        <View style={[styles.boxRow, { alignItems: "center" }]}>
+          <View style={[styles.boxRow, { width: "100%" }]}>
+            <View style={[styles.boxRow, { width: "85%" }]}>
+              <Image
+                source={require("../../../assets/icon/png/traveloka-icon.png")}
+                style={styles.iconRefund}
+              />
+              <Text style={styles.note}>
+                Tip: Tambah Jaminan Refund. Jika pesanan harus dibatalkan, Anda
+                tetap dapat 80% refund
+              </Text>
+            </View>
             <View
-              style={{
-                width: "15%",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
+              style={[
+                styles.boxCenter,
+                {
+                  width: "10%",
+                },
+              ]}
             >
               <View style={styles.circle}>
-                <Text
-                  style={{
-                    fontSize: 10,
-                    color: colors.blue4,
-                    fontWeight: "500",
-                  }}
-                >
-                  ?
-                </Text>
+                <Text style={styles.questionMark}>?</Text>
               </View>
             </View>
           </View>
@@ -58,7 +47,7 @@ function Drawer({ item, navigation }) {
       </View>
       <View style={styles.background}>
         <View style={styles.card}>
-          {/* <ImageCarousel images={images} /> */}
+          <ImageSlider />
           <View style={styles.cardInfo}>
             <Text style={styles.superior}>Superior</Text>
             <IconText
@@ -81,11 +70,12 @@ function Drawer({ item, navigation }) {
               </Text>
             </View>
             <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginVertical: 8,
-              }}
+              style={[
+                styles.boxRowBetween,
+                {
+                  marginVertical: 8,
+                },
+              ]}
             >
               <Text style={styles.title}>Superior Room Only</Text>
               <TouchableOpacity>
@@ -95,97 +85,83 @@ function Drawer({ item, navigation }) {
               </TouchableOpacity>
             </View>
             <View>
-              {/* <IconText
-                iconSource={require("../../../assets/icon/traveloka-icon-blue.png")}
+              <IconText
+                iconSource={require("../../../assets/icon/png/traveloka-icon-blue.png")}
                 text="2 tamu/kamar"
                 color={colors.black}
                 fontSize={11}
               />
               <IconText
-                iconSource={require("../../../assets/icon/traveloka-icon-blue.png")}
+                iconSource={require("../../../assets/icon/png/traveloka-icon-blue.png")}
                 text="1 double bed atau 2 single bed"
                 color={colors.black}
                 fontSize={11}
-              /> */}
+              />
             </View>
             <View style={{ marginTop: 10 }}>
-              <View
-                style={[styles.boxRow, { justifyContent: "space-between" }]}
-              >
-                {/* <IconText
-                  iconSource={require("../../../assets/icon/traveloka-icon-blue.png")}
+              <View style={styles.boxRowBetween}>
+                <IconText
+                  iconSource={require("../../../assets/icon/png/traveloka-icon-blue.png")}
                   text="Sarapan Gratis"
                   color={colors.green}
                   fontSize={11}
-                /> */}
+                />
                 <Text style={[styles.lineTrought, styles.textDescription]}>
                   {item.normalPrice}
                 </Text>
               </View>
-              <View
-                style={[styles.boxRow, { justifyContent: "space-between" }]}
-              >
-                {/* <IconText
-                  iconSource={require("../../../assets/icon/traveloka-icon-blue.png")}
+              <View style={styles.boxRowBetween}>
+                <IconText
+                  iconSource={require("../../../assets/icon/png/traveloka-icon-blue.png")}
                   text="Tidak Bisa Refund"
                   color={colors.black}
                   fontSize={11}
-                /> */}
+                />
                 <Text style={styles.price}>{item.price}</Text>
               </View>
-              <View
-                style={[styles.boxRow, { justifyContent: "space-between" }]}
-              >
-                {/* <IconText
-                  iconSource={require("../../../assets/icon/traveloka-icon-blue.png")}
+              <View style={styles.boxRowBetween}>
+                <IconText
+                  iconSource={require("../../../assets/icon/png/traveloka-icon-blue.png")}
                   text="Tidak Bisa Reschdule"
                   color={colors.black}
                   fontSize={11}
-                /> */}
+                />
                 <Text style={styles.textDescription}>/kamar/malam</Text>
               </View>
-              <View
-                style={[styles.boxRow, { justifyContent: "space-between" }]}
-              >
-                {/* <IconText
-                  iconSource={require("../../../assets/icon/traveloka-icon-blue.png")}
+              <View style={styles.boxRowBetween}>
+                <IconText
+                  iconSource={require("../../../assets/icon/png/traveloka-icon-blue.png")}
                   text="WiFi Gratis"
                   color={colors.green}
                   fontSize={11}
-                /> */}
+                />
               </View>
               <View style={[styles.boxRow, { justifyContent: "flex-end" }]}>
                 <View
-                  style={{
-                    flexDirection: "column",
-                    alignItems: "flex-end",
-                  }}
+                  style={[
+                    styles.boxCol,
+                    {
+                      alignItems: "flex-end",
+                    },
+                  ]}
                 >
-                  <Text style={{ color: colors.orange, fontSize: 11 }}>
+                  <Text style={[styles.smallText, styles.orangeText]}>
                     Sisa 1 Kamar!
                   </Text>
                   <TouchableOpacity
                     style={styles.button}
                     onPress={() => navigation.navigate("SplashProfile")}
                   >
-                    <Text
-                      style={{
-                        color: colors.white,
-                        textAlign: "center",
-                        fontWeight: "600",
-                      }}
-                    >
-                      Pilih
-                    </Text>
+                    <Text style={styles.buttonText}>Pilih</Text>
                   </TouchableOpacity>
                   <View style={styles.boxRow}>
                     <Image
                       source={require("../../../assets/icon/png/traveloka-icon-blue.png")}
                       style={styles.icon}
                     />
-                    <Text style={{ fontSize: 11 }}>
+                    <Text style={styles.smallText}>
                       Dapatkan
-                      <Text style={{ color: colors.blue2, fontSize: 11 }}>
+                      <Text style={[styles.smallText, { color: colors.blue2 }]}>
                         {" "}
                         6750 Priority Points
                       </Text>
@@ -203,11 +179,24 @@ function Drawer({ item, navigation }) {
 
 const styles = StyleSheet.create({
   navigationContainer: {
-    width: 390,
+    width: 400,
+    height: 750,
     backgroundColor: colors.white,
   },
   boxRow: {
     flexDirection: "row",
+    alignItems: "center",
+  },
+  boxRowBetween: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  boxCol: {
+    flexDirection: "column",
+  },
+  boxCenter: {
+    justifyContent: "center",
     alignItems: "center",
   },
   boxTags: {
@@ -216,6 +205,12 @@ const styles = StyleSheet.create({
     padding: wp(2),
     flexDirection: "row",
     alignItems: "center",
+  },
+  smallText: {
+    fontSize: 11,
+  },
+  orangeText: {
+    color: colors.orange,
   },
   tag: {
     height: "100%",
@@ -231,10 +226,20 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   announcement: {
-    height: 80,
+    height: 65,
     backgroundColor: colors.blue4,
     paddingHorizontal: wp(2),
     justifyContent: "center",
+  },
+  note: {
+    color: colors.white,
+    marginHorizontal: wp(2),
+    fontSize: 12,
+  },
+  questionMark: {
+    fontSize: 10,
+    color: colors.blue4,
+    fontWeight: "500",
   },
   background: {
     backgroundColor: colors.concrete,
@@ -260,14 +265,14 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   icon: {
-    width: 14,
-    height: hp(3),
+    width: 16,
+    height: hp(2.5),
     marginRight: 8,
   },
   iconRefund: {
     position: "relative",
-    width: 18,
-    height: hp(4),
+    width: 16,
+    height: hp(3),
   },
   text: {
     fontSize: 12,
@@ -282,7 +287,6 @@ const styles = StyleSheet.create({
     borderColor: colors.blue2,
     borderRadius: 8,
     alignItems: "center",
-    marginVertical: 8,
   },
   alertIcon: {
     paddingHorizontal: wp(2),
@@ -313,6 +317,11 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 6,
     marginVertical: 2,
+  },
+  buttonText: {
+    color: colors.white,
+    textAlign: "center",
+    fontWeight: "600",
   },
 });
 

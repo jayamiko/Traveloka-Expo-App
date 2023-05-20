@@ -46,22 +46,11 @@ export const Menu = () => {
           <View style={styles.icon(colors.blue4)}>
             <Image
               source={require("../../../assets/icon/png/paylater.png")}
-              style={{ width: wp(11), height: hp(7) }}
+              style={{ width: wp(10), height: hp(6) }}
             />
           </View>
           <Gap width={wp(1)} />
-          <Text
-            style={{
-              color: colors.grayMuda,
-              fontSize: hp(1.7),
-              width: wp(20),
-              fontWeight: "600",
-              textAlign: "center",
-              marginTop: 2,
-            }}
-          >
-            Pay Later
-          </Text>
+          <Text style={styles.titleMenu}>Pay Later</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.line}></View>
@@ -104,6 +93,14 @@ const styles = StyleSheet.create({
   },
   menus: {
     flexDirection: "column",
+  },
+  titleMenu: {
+    color: colors.grayMuda,
+    fontSize: hp(1.7),
+    width: wp(20),
+    fontWeight: "600",
+    textAlign: "center",
+    marginTop: 2,
   },
   container_menu: {
     flexDirection: "row",

@@ -15,7 +15,6 @@ import CarSVG from "../components/svgIcons/CarSVG";
 import InsuranceSVG from "../components/svgIcons/InsuranceSVG";
 import ShuttleSVG from "../components/svgIcons/ShuttleSVG";
 import VoucherSVG from "../components/svgIcons/VoucherSVG";
-import TaxiSVG from "../components/svgIcons/TaxiSVG";
 import AllProductSVG from "../components/svgIcons/AllProductSVG";
 
 export const menus = [
@@ -33,11 +32,6 @@ export const menus = [
     icon: <ExperienceSVG />,
     title: "Xperience",
     color: colors.experience,
-  },
-  {
-    icon: <PlanSVG />,
-    title: "Tiket Pesawat",
-    color: colors.blue,
   },
 ];
 

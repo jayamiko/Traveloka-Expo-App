@@ -460,3 +460,9 @@ export const facilities = [
     name: "WiFi",
   },
 ];
+
+export const roomImages = [
+  require("../assets/ilustrasi/iklan-tour.jpg"),
+  require("../assets/ilustrasi/iklan-buavita.jpg"),
+  require("../assets/ilustrasi/promo-lebaran.jpg"),
+];

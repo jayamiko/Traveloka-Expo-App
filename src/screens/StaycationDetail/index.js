@@ -9,6 +9,7 @@ import {
   DrawerLayoutAndroid,
 } from "react-native";
 import { TabBar, TabView } from "react-native-tab-view";
+import { DrawerLayout } from "react-native-gesture-handler";
 import {
   aroundPlace,
   colors,
@@ -19,10 +20,10 @@ import {
 } from "../../constants";
 import {
   CoverImage,
-  Drawer,
   Map,
   FooterTab,
   AlertNotification,
+  Drawer,
 } from "../../components/molecule";
 import {
   Title,
@@ -35,6 +36,7 @@ import {
   TabContent,
 } from "../../components/atoms";
 import MapSVG from "../../components/svgIcons/MapSVG";
+import { HStack } from "native-base";
 
 const tabRoutes = [
   { key: "Di Sekitar Properti", title: "Di Sekitar Properti" },
@@ -73,14 +75,13 @@ const StaycationDetail = ({ route, navigation }) => {
 
   return (
     <View style={styles.saveArea}>
-      <DrawerLayoutAndroid
+      <DrawerLayout
         ref={drawer}
-        drawerWidth={360}
+        drawerWidth={390}
         drawerPosition={drawerPosition}
         renderNavigationView={navigationView}
-        style={{ borderWidth: 0 }}
       >
-        <View flex={1} style={styles.box}>
+        <View saveAreaTop flex={1} style={styles.box}>
           <ScrollView>
             {/* COVER IMAGE */}
             <CoverImage item={item} />
@@ -405,9 +406,9 @@ const StaycationDetail = ({ route, navigation }) => {
             </View>
           </ScrollView>
           {/* FOOTER TAB */}
-          <FooterTab drawer={drawer} item={item} navigation={navigation} />
+          <FooterTab drawer={drawer} item={item} />
         </View>
-      </DrawerLayoutAndroid>
+      </DrawerLayout>
     </View>
   );
 };
