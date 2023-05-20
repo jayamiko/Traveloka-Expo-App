@@ -6,7 +6,7 @@ import { Main } from "./Main";
 // import { Inbox } from "./Inbox";
 import { Splash } from "./Splash";
 // import { SplashProfile } from "./SplashProfile";
-// import { Introduction } from "./Introduction";
+import { Introduction } from "./Introduction";
 import StaycationDetail from "./StaycationDetail";
 
 export {
@@ -18,6 +18,6 @@ export {
   //   Inbox,
   Splash,
   //   SplashProfile,
-  //   Introduction,
+  Introduction,
   StaycationDetail,
 };

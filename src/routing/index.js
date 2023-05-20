@@ -8,7 +8,7 @@ import {
   View,
   Image,
 } from "react-native";
-import { Main, Splash, StaycationDetail } from "../screens";
+import { Main, Splash, StaycationDetail, Introduction } from "../screens";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -130,11 +130,11 @@ export const Routes = () => {
               component={ProfileScreen}
               options={{ headerShown: false }}
             /> */}
-            {/* <Stack.Screen
+            <Stack.Screen
               name="Introduction"
               component={Introduction}
               options={{ headerShown: false }}
-            /> */}
+            />
             <Stack.Screen
               name="StaycationDetail"
               component={StaycationDetail}

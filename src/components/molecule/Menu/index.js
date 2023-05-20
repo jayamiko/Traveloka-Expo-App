@@ -14,11 +14,12 @@ import { menuLists, menus } from "../../../constants/menus";
 export const Menu = () => {
   const height = 0;
   return (
-    <>
+    <View>
       <View style={styles.container_main_menu}>
-        {menus.map((item) => {
+        {menus.map((item, i) => {
           return (
             <ButtonIconText
+              key={i}
               icon={<View style={styles.icon(item.color)}>{item.icon}</View>}
               title={item.title}
               titleColor={colors.grayMuda}
@@ -68,9 +69,10 @@ export const Menu = () => {
         <Gap width={wp(1.5)} />
         <View style={styles.menus}>
           <View style={styles.container_menu}>
-            {menuLists.map((item) => {
+            {menuLists.map((item, i) => {
               return (
                 <ButtonIconText
+                  key={i}
                   icon={
                     <View style={styles.smallICon(colors.concrete)}>
                       {item.icon}
@@ -91,7 +93,7 @@ export const Menu = () => {
           </View>
         </View>
       </ScrollView>
-    </>
+    </View>
   );
 };
 

@@ -1,5 +1,5 @@
 // import Circle from "./Circle";
-// import ModalOption from "./ModalOption";
+import Carousel from "./Carousel";
 import Card from "./Card";
 import Iklan from "./Iklan";
 import Drawer from "./Drawer";
@@ -13,7 +13,7 @@ import FooterTab from "./FooterTab";
 
 export {
   //   Circle,
-  //   ModalOption,
+  Carousel,
   Card,
   Iklan,
   Drawer,
