@@ -28,13 +28,7 @@ export function IconText({
 
 export function IconFacility({ item }) {
   return (
-    <View
-      style={{
-        maxWidth: 75,
-        alignItems: "center",
-        marginRight: 18,
-      }}
-    >
+    <View style={styles.boxFacilities}>
       <Image
         source={item.icon}
         style={{
@@ -42,15 +36,7 @@ export function IconFacility({ item }) {
           height: hp(8),
         }}
       />
-      <Text
-        style={{
-          fontSize: 12,
-          color: colors.grayMuda,
-          textAlign: "center",
-        }}
-      >
-        {item.name}
-      </Text>
+      <Text style={styles.iconText}>{item.name}</Text>
     </View>
   );
 }
@@ -64,6 +50,16 @@ const styles = StyleSheet.create({
     width: 14,
     height: hp(3),
     marginRight: 8,
+  },
+  boxFacilities: {
+    maxWidth: 80,
+    alignItems: "center",
+    marginRight: 18,
+  },
+  iconText: {
+    fontSize: 12,
+    color: colors.grayMuda,
+    textAlign: "center",
   },
 });
 

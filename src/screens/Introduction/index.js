@@ -22,27 +22,27 @@ export const Introduction = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   page_padding: {
-    backgroundColor: colors.blue2,
     flex: 1,
+    backgroundColor: colors.blue2,
     justifyContent: "flex-start",
   },
   text: {
     color: colors.black,
-    fontSize: 24,
+    fontSize: 18,
     fontWeight: "700",
     textAlign: "center",
   },
   bottom: {
-    backgroundColor: colors.white,
     height: "25%",
     width: "100%",
+    backgroundColor: colors.white,
     borderRadius: 10,
     paddingHorizontal: 20,
     paddingVertical: 20,
   },
   button: {
     backgroundColor: colors.orange,
-    marginTop: 20,
+    marginTop: 10,
     padding: 10,
     borderRadius: 5,
   },

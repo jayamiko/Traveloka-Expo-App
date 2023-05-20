@@ -56,7 +56,7 @@ const CarouselComponent = () => {
 const styles = StyleSheet.create({
   carouselContainer: {
     width: "100%",
-    height: "75%",
+    height: 635,
     padding: 0,
   },
   carouselItem: StyleSheet.create({

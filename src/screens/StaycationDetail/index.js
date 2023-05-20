@@ -6,7 +6,6 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
-  DrawerLayoutAndroid,
 } from "react-native";
 import { TabBar, TabView } from "react-native-tab-view";
 import { DrawerLayout } from "react-native-gesture-handler";
@@ -35,8 +34,6 @@ import {
   IconFacility,
   TabContent,
 } from "../../components/atoms";
-import MapSVG from "../../components/svgIcons/MapSVG";
-import { HStack } from "native-base";
 
 const tabRoutes = [
   { key: "Di Sekitar Properti", title: "Di Sekitar Properti" },
@@ -117,9 +114,7 @@ const StaycationDetail = ({ route, navigation }) => {
                 </View>
                 {/* Map */}
                 <View style={styles.row}>
-                  <ButtonIconOnly>
-                    <MapSVG />
-                  </ButtonIconOnly>
+                  <ButtonIconOnly>{/* <MapSVG /> */}</ButtonIconOnly>
                   <Text>{item.location}</Text>
                 </View>
                 {/* Clean Accomodation */}
@@ -543,7 +538,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   facility: {
-    height: 200,
+    height: 220,
     marginHorizontal: wp(2),
     paddingVertical: hp(2),
     borderBottomWidth: 1,
