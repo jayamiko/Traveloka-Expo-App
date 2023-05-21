@@ -9,13 +9,14 @@ import {
   Animated,
 } from "react-native";
 import { colors, hp, visit, wp } from "../../constants";
+import { LinearGradient } from "expo-linear-gradient";
 import { ButtonIconOnly, Gap } from "../../components/atoms";
 import { Card, Money, Menu, Header, Iklan } from "../../components/molecule";
 import ArrowRightSVG from "../../components/svgIcons/ArrowRightSVG";
 import StaggerBounce from "../../components/animations/StaggerBounce";
 
 export const Main = ({ navigation }) => {
-  const [categoryActive, setCategoryActive] = useState("Xperience");
+  const [categoryActive, setCategoryActive] = useState("Hotel");
   const animatedValue = useRef(new Animated.Value(0)).current;
   const [isScrolling, setIsScrolling] = useState(false);
 
@@ -25,12 +26,12 @@ export const Main = ({ navigation }) => {
   const [dataFilter, setDataFilter] = useState(dataHotels);
 
   function handleFilter(value) {
-    if (value == "Hotel") {
-      setDataFilter(dataHotels);
-      setCategoryActive("Hotel");
-    } else {
+    if (value == "Xperience") {
       setCategoryActive("Xperience");
       setDataFilter(dataXperience);
+    } else {
+      setDataFilter(dataHotels);
+      setCategoryActive("Hotel");
     }
   }
 
@@ -65,7 +66,12 @@ export const Main = ({ navigation }) => {
               <View style={styles.box}>
                 <View style={styles.boxLabel}>
                   <Text style={styles.username}>Hai, Jaya Miko!</Text>
-                  <View style={styles.label}>
+                  <LinearGradient
+                    colors={[colors.blue, colors.blue2]}
+                    start={[0, 0]}
+                    end={[1, 0]}
+                    style={styles.label}
+                  >
                     <Text
                       style={[
                         styles.bold,
@@ -74,7 +80,7 @@ export const Main = ({ navigation }) => {
                     >
                       Be a part of PRIORITY {">"}
                     </Text>
-                  </View>
+                  </LinearGradient>
                 </View>
                 <View style={[styles.row, styles.paddingHz]}>
                   <Money />
@@ -82,10 +88,10 @@ export const Main = ({ navigation }) => {
               </View>
             </View>
             <Menu />
-            <Gap height={hp(3)} />
+            <Gap height={hp(1)} />
             <View style={styles.break} />
-            <Gap height={hp(3)} />
-            {/* HOTELS VISIT */}
+            <Gap height={hp(1)} />
+            {/* XPERIENCE & HOTEL FILTER */}
             <View style={styles.hotel}>
               <View style={styles.rowBetween}>
                 <Text style={styles.title}>Lihat lagi yang Anda minati</Text>
@@ -94,32 +100,6 @@ export const Main = ({ navigation }) => {
                 </ButtonIconOnly>
               </View>
               <View style={styles.row}>
-                <TouchableOpacity
-                  style={[
-                    styles.tag,
-                    {
-                      backgroundColor:
-                        categoryActive == "Xperience"
-                          ? colors.blue2
-                          : colors.concrete,
-                    },
-                  ]}
-                  onPress={() => setCategoryActive("Xperience")}
-                >
-                  <Text
-                    style={[
-                      styles.tagText,
-                      {
-                        color:
-                          categoryActive == "Xperience"
-                            ? colors.white
-                            : colors.blue2,
-                      },
-                    ]}
-                  >
-                    Xperience
-                  </Text>
-                </TouchableOpacity>
                 <TouchableOpacity
                   style={[
                     styles.tag,
@@ -146,6 +126,32 @@ export const Main = ({ navigation }) => {
                     Hotel
                   </Text>
                 </TouchableOpacity>
+                <TouchableOpacity
+                  style={[
+                    styles.tag,
+                    {
+                      backgroundColor:
+                        categoryActive == "Xperience"
+                          ? colors.blue2
+                          : colors.concrete,
+                    },
+                  ]}
+                  onPress={() => setCategoryActive("Xperience")}
+                >
+                  <Text
+                    style={[
+                      styles.tagText,
+                      {
+                        color:
+                          categoryActive == "Xperience"
+                            ? colors.white
+                            : colors.blue2,
+                      },
+                    ]}
+                  >
+                    Xperience
+                  </Text>
+                </TouchableOpacity>
               </View>
             </View>
             <View>
@@ -169,7 +175,36 @@ export const Main = ({ navigation }) => {
                 })}
               </ScrollView>
             </View>
-            <Gap height={hp(3)} />
+            <Gap height={hp(1)} />
+            {/* HOTEL VISIT LIST */}
+            <View style={styles.hotel}>
+              <View style={styles.rowBetween}>
+                <Text style={styles.title}>Hotel wajib dikunjungi</Text>
+                <ButtonIconOnly icon={<ArrowRightSVG />} />
+              </View>
+            </View>
+            <View>
+              <ScrollView
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+              >
+                <Gap width={wp(1.5)} />
+                {visit.map((item, index) => {
+                  return (
+                    <Card
+                      key={index}
+                      item={item}
+                      onPress={() =>
+                        navigation.navigate("StaycationDetail", {
+                          item: item,
+                        })
+                      }
+                    />
+                  );
+                })}
+              </ScrollView>
+            </View>
+            <Gap height={hp(1)} />
             {/* ATRACTION VISIT */}
             <View style={styles.hotel}>
               <View style={styles.rowBetween}>
@@ -198,12 +233,12 @@ export const Main = ({ navigation }) => {
                 })}
               </ScrollView>
             </View>
-            <Gap height={hp(3)} />
+            <Gap height={hp(1)} />
             <Image
               source={require("../../assets/ilustrasi/promo-lebaran.jpg")}
               style={styles.lebaranBanner}
             />
-            <Gap height={hp(3)} />
+            <Gap height={hp(2)} />
             {/* IKLAN BUAVITA */}
             <Iklan
               title="Saatnya Mudik, Saatnya Buavita"
@@ -211,7 +246,7 @@ export const Main = ({ navigation }) => {
               sponsorName="Buavita"
               image={require("../../assets/ilustrasi/iklan-buavita.jpg")}
             />
-            <Gap height={hp(3)} />
+            <Gap height={hp(2)} />
             {/* PLANE VISIT */}
             <View style={styles.hotel}>
               <View style={styles.rowBetween}>
@@ -240,14 +275,14 @@ export const Main = ({ navigation }) => {
                 })}
               </ScrollView>
             </View>
-            <Gap height={hp(3)} />
+            <Gap height={hp(1)} />
             {/* IKLAN TOUR */}
             <Iklan
               title="Seru-Seruan di Singapura & Mal..."
               sponsor={false}
               image={require("../../assets/ilustrasi/iklan-tour.jpg")}
             />
-            <Gap height={hp(3)} />
+            <Gap height={hp(1)} />
           </View>
         </ScrollView>
       </View>
@@ -330,7 +365,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: "600",
-    fontSize: 18,
+    fontSize: 20,
   },
   tag: {
     height: "100%",

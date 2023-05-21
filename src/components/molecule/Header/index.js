@@ -1,17 +1,31 @@
-import React from "react";
-import { StyleSheet, View, Image } from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, View, Image, Text, TextInput } from "react-native";
 import { colors, hp, wp } from "../../../constants";
 import { Input, Gap } from "../../atoms";
+import * as Animatable from "react-native-animatable";
 import SearchSVG from "../../svgIcons/SearchSVG";
 
 const Header = ({ onPress, placeholder }) => {
+  const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
+  const placeholders = ["Placeholder 1", "Placeholder 2", "Placeholder 3"];
+
+  const changePlaceholder = () => {
+    const nextPlaceholderIndex = (currentPlaceholder + 1) % placeholders.length;
+    setCurrentPlaceholder(nextPlaceholderIndex);
+  };
+
+  useEffect(() => {
+    const interval = setInterval(changePlaceholder, 5000);
+    return () => clearInterval(interval);
+  }, [currentPlaceholder]);
+
   return (
     <View style={styles.header}>
       <Input
         colorText={colors.grayMuda}
         paddingHorizontal={wp(3)}
         backgroundColor={colors.white}
-        placeholder={placeholder}
+        placeholder={placeholders[currentPlaceholder]}
         fontSize={hp(2)}
         borderRadius={wp(1)}
         height={hp(5)}
