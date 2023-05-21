@@ -47,10 +47,22 @@ export const Main = ({ navigation }) => {
       >
         <View style={styles.topShape}></View>
         <View style={styles.pageView}>
-          <View style={styles.containerRow}>
+          <View style={[styles.containerRow]}>
             <View style={styles.box}>
-              <Text style={styles.textBold}>Hai, Jaya Miko!</Text>
-              <View style={styles.row}>
+              <View style={styles.boxLabel}>
+                <Text style={styles.username}>Hai, Jaya Miko!</Text>
+                <View style={styles.label}>
+                  <Text
+                    style={[
+                      styles.bold,
+                      { color: colors.white, paddingHorizontal: 8 },
+                    ]}
+                  >
+                    Be a part of PRIORITY {">"}
+                  </Text>
+                </View>
+              </View>
+              <View style={[styles.row, styles.paddingHz]}>
                 <Money />
               </View>
             </View>
@@ -238,6 +250,9 @@ const styles = StyleSheet.create({
     position: "relative",
     bottom: 40,
   },
+  paddingHz: {
+    paddingHorizontal: wp(2),
+  },
   topShape: {
     backgroundColor: colors.blue2,
     height: 35,
@@ -247,9 +262,6 @@ const styles = StyleSheet.create({
   },
   containerRow: {
     flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: wp(2),
     paddingVertical: wp(2),
     margin: wp(2),
     backgroundColor: colors.white,
@@ -263,15 +275,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 6,
     borderBottomColor: colors.blue2,
   },
-  textBold: {
-    color: colors.gray,
-    fontSize: hp(2),
-    paddingHorizontal: wp(2),
-  },
-  title: {
-    fontWeight: "600",
-    fontSize: 18,
-  },
   box: {
     flexDirection: "column",
     backgroundColor: colors.white,
@@ -283,6 +286,33 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+  username: {
+    color: colors.gray,
+    paddingHorizontal: wp(2),
+  },
+  bold: {
+    fontWeight: "bold",
+  },
+  boxLabel: {
+    height: 26,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 8,
+    paddingLeft: wp(2),
+  },
+  label: {
+    height: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: colors.blue,
+    borderBottomLeftRadius: 4,
+    borderTopLeftRadius: 4,
+  },
+  title: {
+    fontWeight: "600",
+    fontSize: 18,
   },
   tag: {
     height: "100%",

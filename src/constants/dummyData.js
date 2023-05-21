@@ -432,7 +432,7 @@ export const populerPlace = [
 
 export const facilities = [
   {
-    icon: require("../assets/icon/png/AC.png"),
+    icon: require("../assets/icon/png/ac.png"),
     name: "AC",
   },
   {
