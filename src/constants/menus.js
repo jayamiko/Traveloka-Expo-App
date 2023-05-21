@@ -35,7 +35,7 @@ export const menus = [
   },
 ];
 
-export const menuLists = [
+export const menuLists1 = [
   {
     icon: <JRPassSVG />,
     title: "Tiket Kereta Api",
@@ -61,6 +61,9 @@ export const menuLists = [
     icon: <TouristSVG />,
     title: "Tur",
   },
+];
+
+export const menuLists2 = [
   {
     icon: <PulsaSVG />,
     title: "Pulsa & Paket Internet",
@@ -85,10 +88,6 @@ export const menuLists = [
     icon: <VoucherSVG />,
     title: "Gift & Voucher",
   },
-  // {
-  //   icon: <TaxiSVG />,
-  //   title: "Taksi",
-  // },
   {
     icon: <AllProductSVG />,
     title: "Semua Produk",

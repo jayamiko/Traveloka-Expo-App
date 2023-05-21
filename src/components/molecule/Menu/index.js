@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { colors, hp, wp } from "../../../constants";
 import { ButtonIconText, Gap } from "../../atoms";
-import { menuLists, menus } from "../../../constants/menus";
+import { menuLists1, menuLists2, menus } from "../../../constants/menus";
 
 export const Menu = () => {
   const height = 0;
@@ -58,7 +58,30 @@ export const Menu = () => {
         <Gap width={wp(1.5)} />
         <View style={styles.menus}>
           <View style={styles.container_menu}>
-            {menuLists.map((item, i) => {
+            {menuLists1.map((item, i) => {
+              return (
+                <ButtonIconText
+                  key={i}
+                  icon={
+                    <View style={styles.smallICon(colors.concrete)}>
+                      {item.icon}
+                    </View>
+                  }
+                  title={item.title}
+                  titleColor={colors.grayMuda}
+                  fontSize={hp(1.7)}
+                  width={wp(17)}
+                  flexDirection={"column"}
+                  textAlign={"center"}
+                  widthText={wp(20)}
+                  justifyContent={"flex-start"}
+                  fontWeight={"600"}
+                />
+              );
+            })}
+          </View>
+          <View style={styles.container_menu}>
+            {menuLists2.map((item, i) => {
               return (
                 <ButtonIconText
                   key={i}

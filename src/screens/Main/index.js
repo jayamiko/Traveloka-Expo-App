@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import {
   Image,
   ScrollView,
@@ -6,14 +6,18 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Animated,
 } from "react-native";
 import { colors, hp, visit, wp } from "../../constants";
 import { ButtonIconOnly, Gap } from "../../components/atoms";
 import { Card, Money, Menu, Header, Iklan } from "../../components/molecule";
 import ArrowRightSVG from "../../components/svgIcons/ArrowRightSVG";
+import StaggerBounce from "../../components/animations/StaggerBounce";
 
 export const Main = ({ navigation }) => {
   const [categoryActive, setCategoryActive] = useState("Xperience");
+  const animatedValue = useRef(new Animated.Value(0)).current;
+  const [isScrolling, setIsScrolling] = useState(false);
 
   const dataHotels = visit.filter((item) => item.category == "Hotel");
   const dataXperience = visit.filter((item) => item.category == "Xperience");
@@ -34,217 +38,231 @@ export const Main = ({ navigation }) => {
     handleFilter(categoryActive);
   }, [categoryActive]);
 
+  const handleScroll = (event) => {
+    const { contentOffset } = event.nativeEvent;
+    setIsScrolling(contentOffset.y > 0);
+  };
+
   return (
-    <View style={styles.page}>
-      <Header
-        placeholder={"Cari item, destinasi, fitur..."}
-        onPress={() => navigation.navigate("Simpan")}
-      />
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        alwaysBounceVertical={false}
-        disableScrollViewPanResponder={true}
-      >
-        <View style={styles.topShape}></View>
-        <View style={styles.pageView}>
-          <View style={[styles.containerRow]}>
-            <View style={styles.box}>
-              <View style={styles.boxLabel}>
-                <Text style={styles.username}>Hai, Jaya Miko!</Text>
-                <View style={styles.label}>
-                  <Text
-                    style={[
-                      styles.bold,
-                      { color: colors.white, paddingHorizontal: 8 },
-                    ]}
-                  >
-                    Be a part of PRIORITY {">"}
-                  </Text>
+    <ScrollView
+      contentContainerStyle={styles.container}
+      onScroll={handleScroll}
+      scrollEventThrottle={30}
+    >
+      <View style={styles.page}>
+        <Header
+          placeholder={"Cari item, destinasi, fitur..."}
+          onPress={() => navigation.navigate("Simpan")}
+        />
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          alwaysBounceVertical={false}
+          disableScrollViewPanResponder={true}
+        >
+          <View style={styles.topShape}></View>
+          <View style={styles.pageView}>
+            <View style={[styles.containerRow]}>
+              <View style={styles.box}>
+                <View style={styles.boxLabel}>
+                  <Text style={styles.username}>Hai, Jaya Miko!</Text>
+                  <View style={styles.label}>
+                    <Text
+                      style={[
+                        styles.bold,
+                        { color: colors.white, paddingHorizontal: 8 },
+                      ]}
+                    >
+                      Be a part of PRIORITY {">"}
+                    </Text>
+                  </View>
+                </View>
+                <View style={[styles.row, styles.paddingHz]}>
+                  <Money />
                 </View>
               </View>
-              <View style={[styles.row, styles.paddingHz]}>
-                <Money />
+            </View>
+            <Menu />
+            <Gap height={hp(3)} />
+            <View style={styles.break} />
+            <Gap height={hp(3)} />
+            {/* HOTELS VISIT */}
+            <View style={styles.hotel}>
+              <View style={styles.rowBetween}>
+                <Text style={styles.title}>Lihat lagi yang Anda minati</Text>
+                <ButtonIconOnly>
+                  <ArrowRightSVG />
+                </ButtonIconOnly>
+              </View>
+              <View style={styles.row}>
+                <TouchableOpacity
+                  style={[
+                    styles.tag,
+                    {
+                      backgroundColor:
+                        categoryActive == "Xperience"
+                          ? colors.blue2
+                          : colors.concrete,
+                    },
+                  ]}
+                  onPress={() => setCategoryActive("Xperience")}
+                >
+                  <Text
+                    style={[
+                      styles.tagText,
+                      {
+                        color:
+                          categoryActive == "Xperience"
+                            ? colors.white
+                            : colors.blue2,
+                      },
+                    ]}
+                  >
+                    Xperience
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[
+                    styles.tag,
+                    {
+                      backgroundColor:
+                        categoryActive == "Hotel"
+                          ? colors.blue2
+                          : colors.concrete,
+                    },
+                  ]}
+                  onPress={() => setCategoryActive("Hotel")}
+                >
+                  <Text
+                    style={[
+                      styles.tagText,
+                      {
+                        color:
+                          categoryActive == "Hotel"
+                            ? colors.white
+                            : colors.blue2,
+                      },
+                    ]}
+                  >
+                    Hotel
+                  </Text>
+                </TouchableOpacity>
               </View>
             </View>
-          </View>
-          <Menu />
-          <Gap height={hp(3)} />
-          <View style={styles.break} />
-          <Gap height={hp(3)} />
-          {/* HOTELS VISIT */}
-          <View style={styles.hotel}>
-            <View style={styles.rowBetween}>
-              <Text style={styles.title}>Lihat lagi yang Anda minati</Text>
-              <ButtonIconOnly>
-                <ArrowRightSVG />
-              </ButtonIconOnly>
-            </View>
-            <View style={styles.row}>
-              <TouchableOpacity
-                style={[
-                  styles.tag,
-                  {
-                    backgroundColor:
-                      categoryActive == "Xperience"
-                        ? colors.blue2
-                        : colors.concrete,
-                  },
-                ]}
-                onPress={() => setCategoryActive("Xperience")}
+            <View>
+              <ScrollView
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
               >
-                <Text
-                  style={[
-                    styles.tagText,
-                    {
-                      color:
-                        categoryActive == "Xperience"
-                          ? colors.white
-                          : colors.blue2,
-                    },
-                  ]}
-                >
-                  Xperience
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={[
-                  styles.tag,
-                  {
-                    backgroundColor:
-                      categoryActive == "Hotel"
-                        ? colors.blue2
-                        : colors.concrete,
-                  },
-                ]}
-                onPress={() => setCategoryActive("Hotel")}
+                <Gap width={wp(1.5)} />
+                {dataFilter.map((item, index) => {
+                  return (
+                    <Card
+                      key={index}
+                      item={item}
+                      onPress={() =>
+                        navigation.navigate("StaycationDetail", {
+                          item: item,
+                        })
+                      }
+                    />
+                  );
+                })}
+              </ScrollView>
+            </View>
+            <Gap height={hp(3)} />
+            {/* ATRACTION VISIT */}
+            <View style={styles.hotel}>
+              <View style={styles.rowBetween}>
+                <Text style={styles.title}>Atraksi wajib dikunjungi</Text>
+                <ButtonIconOnly icon={<ArrowRightSVG />} />
+              </View>
+            </View>
+            <View>
+              <ScrollView
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
               >
-                <Text
-                  style={[
-                    styles.tagText,
-                    {
-                      color:
-                        categoryActive == "Hotel" ? colors.white : colors.blue2,
-                    },
-                  ]}
-                >
-                  Hotel
-                </Text>
-              </TouchableOpacity>
+                <Gap width={wp(1.5)} />
+                {visit.map((item, index) => {
+                  return (
+                    <Card
+                      key={index}
+                      item={item}
+                      onPress={() =>
+                        navigation.navigate("StaycationDetail", {
+                          item: item,
+                        })
+                      }
+                    />
+                  );
+                })}
+              </ScrollView>
             </View>
-          </View>
-          <View>
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-            >
-              <Gap width={wp(1.5)} />
-              {dataFilter.map((item, index) => {
-                return (
-                  <Card
-                    key={index}
-                    item={item}
-                    onPress={() =>
-                      navigation.navigate("StaycationDetail", {
-                        item: item,
-                      })
-                    }
-                  />
-                );
-              })}
-            </ScrollView>
-          </View>
-          <Gap height={hp(3)} />
-          {/* ATRACTION VISIT */}
-          <View style={styles.hotel}>
-            <View style={styles.rowBetween}>
-              <Text style={styles.title}>Atraksi wajib dikunjungi</Text>
-              <ButtonIconOnly icon={<ArrowRightSVG />} />
+            <Gap height={hp(3)} />
+            <Image
+              source={require("../../assets/ilustrasi/promo-lebaran.jpg")}
+              style={styles.lebaranBanner}
+            />
+            <Gap height={hp(3)} />
+            {/* IKLAN BUAVITA */}
+            <Iklan
+              title="Saatnya Mudik, Saatnya Buavita"
+              sponsor={true}
+              sponsorName="Buavita"
+              image={require("../../assets/ilustrasi/iklan-buavita.jpg")}
+            />
+            <Gap height={hp(3)} />
+            {/* PLANE VISIT */}
+            <View style={styles.hotel}>
+              <View style={styles.rowBetween}>
+                <Text style={styles.title}>Pilihan penerbangan untuk Anda</Text>
+                <ButtonIconOnly icon={<ArrowRightSVG />} />
+              </View>
             </View>
-          </View>
-          <View>
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-            >
-              <Gap width={wp(1.5)} />
-              {visit.map((item, index) => {
-                return (
-                  <Card
-                    key={index}
-                    item={item}
-                    onPress={() =>
-                      navigation.navigate("StaycationDetail", {
-                        item: item,
-                      })
-                    }
-                  />
-                );
-              })}
-            </ScrollView>
-          </View>
-          <Gap height={hp(3)} />
-          <Image
-            source={require("../../assets/ilustrasi/promo-lebaran.jpg")}
-            style={styles.lebaranBanner}
-          />
-          <Gap height={hp(3)} />
-          {/* IKLAN BUAVITA */}
-          <Iklan
-            title="Saatnya Mudik, Saatnya Buavita"
-            sponsor={true}
-            sponsorName="Buavita"
-            image={require("../../assets/ilustrasi/iklan-buavita.jpg")}
-          />
-          <Gap height={hp(3)} />
-          {/* PLANE VISIT */}
-          <View style={styles.hotel}>
-            <View style={styles.rowBetween}>
-              <Text style={styles.title}>Pilihan penerbangan untuk Anda</Text>
-              <ButtonIconOnly icon={<ArrowRightSVG />} />
+            <View>
+              <ScrollView
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+              >
+                <Gap width={wp(1.5)} />
+                {visit.map((item, index) => {
+                  return (
+                    <Card
+                      key={index}
+                      item={item}
+                      onPress={() =>
+                        navigation.navigate("StaycationDetail", {
+                          item: item,
+                        })
+                      }
+                    />
+                  );
+                })}
+              </ScrollView>
             </View>
+            <Gap height={hp(3)} />
+            {/* IKLAN TOUR */}
+            <Iklan
+              title="Seru-Seruan di Singapura & Mal..."
+              sponsor={false}
+              image={require("../../assets/ilustrasi/iklan-tour.jpg")}
+            />
+            <Gap height={hp(3)} />
           </View>
-          <View>
-            <ScrollView
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-            >
-              <Gap width={wp(1.5)} />
-              {visit.map((item, index) => {
-                return (
-                  <Card
-                    key={index}
-                    item={item}
-                    onPress={() =>
-                      navigation.navigate("StaycationDetail", {
-                        item: item,
-                      })
-                    }
-                  />
-                );
-              })}
-            </ScrollView>
-          </View>
-          <Gap height={hp(3)} />
-          {/* IKLAN TOUR */}
-          <Iklan
-            title="Seru-Seruan di Singapura & Mal..."
-            sponsor={false}
-            image={require("../../assets/ilustrasi/iklan-tour.jpg")}
-          />
-          <Gap height={hp(3)} />
-        </View>
-      </ScrollView>
-    </View>
+        </ScrollView>
+      </View>
+      {!isScrolling && <StaggerBounce animatedValue={animatedValue} />}
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   page: {
     backgroundColor: colors.white,
-    flex: 1,
   },
   container: {
-    paddingHorizontal: wp(3),
+    flex: 1,
+    alignItems: "center",
   },
   pageView: {
     position: "relative",
