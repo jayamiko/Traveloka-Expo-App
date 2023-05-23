@@ -466,3 +466,11 @@ export const roomImages = [
   require("../assets/ilustrasi/iklan-buavita.jpg"),
   require("../assets/ilustrasi/promo-lebaran.jpg"),
 ];
+
+export const discons = [
+  require("../assets/frames/discon-hotel-international.jpg"),
+  require("../assets/frames/discon-hotel-international.jpg"),
+  require("../assets/frames/discon-hotel-international.jpg"),
+  require("../assets/frames/discon-hotel-international.jpg"),
+  require("../assets/frames/discon-hotel-international.jpg"),
+];

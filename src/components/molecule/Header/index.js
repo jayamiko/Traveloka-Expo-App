@@ -2,12 +2,19 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Image, Text, TextInput } from "react-native";
 import { colors, hp, wp } from "../../../constants";
 import { Input, Gap } from "../../atoms";
-import * as Animatable from "react-native-animatable";
 import SearchSVG from "../../svgIcons/SearchSVG";
 
-const Header = ({ onPress, placeholder }) => {
+const Header = ({ onPress }) => {
   const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
-  const placeholders = ["Placeholder 1", "Placeholder 2", "Placeholder 3"];
+  const placeholders = [
+    "Tiket Pesawat Bali",
+    "Sera Homestay",
+    "Tidung Solata Homestay",
+    "Lumire Hotel Convention..",
+    "Coba Pengalaman Baru & sek..",
+    `Cari "produck keuangan di Tra..`,
+    "Hotel Jakarta Pusat",
+  ];
 
   const changePlaceholder = () => {
     const nextPlaceholderIndex = (currentPlaceholder + 1) % placeholders.length;
@@ -26,7 +33,7 @@ const Header = ({ onPress, placeholder }) => {
         paddingHorizontal={wp(3)}
         backgroundColor={colors.white}
         placeholder={placeholders[currentPlaceholder]}
-        fontSize={hp(2)}
+        fontSize={14}
         borderRadius={wp(1)}
         height={hp(5)}
         suffixComponent={<SearchSVG />}

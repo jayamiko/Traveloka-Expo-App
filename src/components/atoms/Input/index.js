@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: height ? height : hp(6),
     paddingHorizontal: paddingHorizontal ? paddingHorizontal : wp(3.6),
-    paddingRight: paddingRight,
+    paddingRight: paddingRight ? paddingRight : 20,
     backgroundColor: backgroundColor,
     borderRadius: borderRadius,
   }),
