@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
 import {
-  Image,
   ScrollView,
   StyleSheet,
   Text,
@@ -8,14 +7,19 @@ import {
   View,
   Animated,
 } from "react-native";
-import { colors, discons, hp, visit, wp } from "../../constants";
+import { colors, hp, visit, wp } from "../../constants";
 import { LinearGradient } from "expo-linear-gradient";
 import { ButtonIconOnly, Gap } from "../../components/atoms";
-import { Card, Money, Menu, Header, Iklan } from "../../components/molecule";
+import {
+  Card,
+  Money,
+  Menu,
+  Header,
+  Iklan,
+  TravelFairPromo,
+} from "../../components/molecule";
 import ArrowRightSVG from "../../components/svgIcons/ArrowRightSVG";
 import StaggerBounce from "../../components/animations/StaggerBounce";
-import { BgPromo, DiscHotelInter, TravelFairBanner } from "../../assets";
-import SwiperImages from "../../components/molecule/SwiperImages";
 
 export const Main = ({ navigation }) => {
   const [categoryActive, setCategoryActive] = useState("Hotel");
@@ -207,40 +211,8 @@ export const Main = ({ navigation }) => {
               </ScrollView>
             </View>
             <Gap height={hp(1)} />
-            <View style={styles.backgroundPromoSize}>
-              <Image source={BgPromo} style={styles.backgroundPromoSize} />
-              <View
-                style={[
-                  styles.paddingHz,
-                  {
-                    position: "absolute",
-                    width: "100%",
-                    marginTop: 100,
-                  },
-                ]}
-              >
-                <Image
-                  source={TravelFairBanner}
-                  style={styles.travelFairBanner}
-                />
-                <Gap height={hp(2)} />
-                <SwiperImages data={discons} />
-                <Gap height={hp(4)} />
-                <SwiperImages data={discons} />
-                <View
-                  style={{
-                    width: "100%",
-                    marginVertical: 10,
-                  }}
-                >
-                  <TouchableOpacity style={styles.buttonGreen}>
-                    <Text style={{ fontWeight: "600", fontSize: 16 }}>
-                      Lihat Semua Promo
-                    </Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
+            {/* TRAVEL FAIR PROMO BANNER */}
+            <TravelFairPromo navigation={navigation} />
             <Gap height={hp(1)} />
             {/* ATRACTION VISIT */}
             <View style={styles.hotel}>
@@ -427,26 +399,6 @@ const styles = StyleSheet.create({
   hotel: {
     justifyContent: "center",
     paddingHorizontal: wp(2),
-  },
-  buttonGreen: {
-    backgroundColor: "#C9E93C",
-    width: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-    marginVertical: 8,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 8,
-  },
-  backgroundPromoSize: {
-    position: "relative",
-    height: 720,
-    width: "100%",
-  },
-  travelFairBanner: {
-    height: 200,
-    width: "100%",
-    borderRadius: 10,
   },
   lebaranBanner: {
     width: "100%",

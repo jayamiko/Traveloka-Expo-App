@@ -1,6 +1,6 @@
 import { colors } from "./colors";
 // SVG ICON IMPORT
-import PlanSVG from "../components/svgIcons/PlanSVG";
+import PlainSVG from "../components/svgIcons/PlainSVG";
 import HotelSVG from "../components/svgIcons/HotelSVG";
 import ExperienceSVG from "../components/svgIcons/ExperienceSVG";
 import JRPassSVG from "../components/svgIcons/JRPassSVG";
@@ -12,7 +12,7 @@ import AllProductSVG from "../components/svgIcons/AllProductSVG";
 
 export const menus = [
   {
-    icon: <PlanSVG />,
+    icon: <PlainSVG />,
     title: "Tiket Pesawat",
     color: colors.blue,
   },

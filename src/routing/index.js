@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  SafeAreaView,
-  // StatusBar,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Image,
-} from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, Image } from "react-native";
 import {
   Main,
   Splash,
@@ -21,7 +13,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NativeBaseProvider } from "native-base";
 import { colors, hp, wp } from "../constants";
 import TabItem from "../components/atoms/TabItem";
-import { Gap } from "../components/atoms";
+import { Gap, ArroBackScreen } from "../components/atoms";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -172,15 +164,7 @@ function HeaderTitle({ route }) {
 
   return (
     <View style={styles.header}>
-      <TouchableOpacity onPress={goBackPage}>
-        <Image
-          source={require("../assets/icon/png/arrow-back.png")}
-          style={{
-            width: 35,
-            height: 35,
-          }}
-        />
-      </TouchableOpacity>
+      <ArroBackScreen width={30} height={30} />
       <View style={{ width: "65%", marginLeft: 8 }}>
         <Text style={{ fontSize: 14, fontWeight: "bold", color: colors.white }}>
           {data.name}

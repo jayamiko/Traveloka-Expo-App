@@ -1,7 +1,7 @@
 import React from "react";
 import Svg, { G, Path } from "react-native-svg";
 
-function PayLaterSVG() {
+function PayLaterSVG({ color }) {
   return (
     <Svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,21 +12,21 @@ function PayLaterSVG() {
       <G fill="none" fillRule="evenodd">
         <Path d="M0 0h24v24H0z" />
         <Path
-          stroke="#0194F3"
+          stroke={color ?? "#FFF"}
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
           d="M18.5 10h2.218c.446 0 .607.046.77.134.163.087.291.215.378.378.088.163.134.324.134.77v2.436c0 .446-.046.607-.134.77a.909.909 0 0 1-.378.378c-.163.088-.324.134-.77.134H18.5a2.5 2.5 0 0 1-2.5-2.5h0a2.5 2.5 0 0 1 2.5-2.5Z"
         />
         <Path
-          stroke="#0194F3"
+          stroke={color ?? "#FFF"}
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
           d="M17 19h3a2 2 0 0 0 2-2V7a1 1 0 0 0-1-1H7m14 0V4a1 1 0 0 0-1-1H6a2 2 0 0 0-2 2v2"
         />
         <Path
-          stroke="#0194F3"
+          stroke={color ?? "#FFF"}
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}

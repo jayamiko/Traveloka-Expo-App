@@ -1,3 +1,13 @@
+import ImageIcon from "../components/atoms/Image";
+import CarSVG from "../components/svgIcons/CarSVG";
+import ExperienceSVG from "../components/svgIcons/ExperienceSVG";
+import InsuranceSVG from "../components/svgIcons/InsuranceSVG";
+import JRPassSVG from "../components/svgIcons/JRPassSVG";
+import PayLaterSVG from "../components/svgIcons/PayLaterSVG";
+import PlainSVG from "../components/svgIcons/PlainSVG";
+import ShuttleSVG from "../components/svgIcons/ShuttleSVG";
+import { colors } from "./colors";
+
 const horisonUltimaBandung =
   "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10000295-800x600-FIT_AND_TRIM-ca254b8bf5c176d1d09735c857323456.jpeg?_src=imagekit&tr=dpr-3,c-at_max,h-344,q-40,w-193";
 const elHotelRoyaleBandung =
@@ -473,4 +483,93 @@ export const discons = [
   require("../assets/frames/discon-hotel-international.jpg"),
   require("../assets/frames/discon-hotel-international.jpg"),
   require("../assets/frames/discon-hotel-international.jpg"),
+];
+
+export const plainTickets = [
+  require("../assets/promo/plain-ticket/plain-ticket-promo-2.jpg"),
+  require("../assets/promo/plain-ticket/plain-ticket-promo-2.jpg"),
+  require("../assets/promo/plain-ticket/plain-ticket-promo-2.jpg"),
+  require("../assets/promo/plain-ticket/plain-ticket-promo-2.jpg"),
+  require("../assets/promo/plain-ticket/plain-ticket-promo-2.jpg"),
+];
+
+export const travelFairPromo = [
+  {
+    title: "Promo Tiket Pesawat",
+    icon: <PlainSVG color={colors.blue2} />,
+    data: plainTickets,
+  },
+  {
+    title: "Promo Hotel",
+    icon: <ImageIcon url={require("../assets/icon/png/hotel-budget.png")} />,
+    data: plainTickets,
+  },
+  {
+    title: "Promo Holiday Stays",
+    icon: <ImageIcon url={require("../assets/icon/png/stays-icon.png")} />,
+    data: plainTickets,
+  },
+  {
+    title: "Promo Xperience",
+    icon: <ExperienceSVG color={colors.experience} />,
+    data: plainTickets,
+  },
+  {
+    title: "Promo PayLater",
+    icon: <PayLaterSVG color={colors.blue4} />,
+    data: plainTickets,
+  },
+  {
+    title: "Promo Tiket Kereta",
+    icon: <JRPassSVG />,
+    data: plainTickets,
+  },
+  {
+    title: "Promo Antar Jemput Ban...",
+    icon: <ShuttleSVG />,
+    data: plainTickets,
+  },
+  {
+    title: "Promo Rental Mobil",
+    icon: <CarSVG />,
+    data: plainTickets,
+  },
+  {
+    title: "Promo Taksi",
+    icon: <ImageIcon url={require("../assets/icon/png/taxi-icon.png")} />,
+    data: plainTickets,
+  },
+  {
+    title: "Promo Tiket Bus & Travel",
+    icon: (
+      <ImageIcon url={require("../assets/icon/png/bus-shuttle-icon.png")} />
+    ),
+    data: plainTickets,
+  },
+  {
+    title: "Promo Asuransi",
+    icon: <InsuranceSVG />,
+    data: plainTickets,
+  },
+  {
+    title: "Promo Tagihan & Isi Ulang",
+    icon: <ImageIcon url={require("../assets/icon/png/document-icon.png")} />,
+    data: plainTickets,
+  },
+  {
+    title: "Promo Pulsa & Paket Inter...",
+    icon: <ImageIcon url={require("../assets/icon/png/internet-icon.png")} />,
+    data: plainTickets,
+  },
+  {
+    title: "Promo Bank",
+    icon: (
+      <ImageIcon
+        url={require("../assets/icon/png/traveloka-icon.png")}
+        width={28}
+        height={28}
+      />
+    ),
+    data: plainTickets,
+  },
 ];

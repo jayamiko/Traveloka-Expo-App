@@ -6,13 +6,17 @@ import Drawer from "./Drawer";
 import Map from "./Map";
 import AlertNotification from "./AlertNotification";
 import CoverImage from "./CoverImage";
-import Header from "./Header";
+import { Header, HeaderTravelFair } from "./Header";
 import { Money } from "./Money";
 import { Menu } from "./Menu";
 import FooterTab from "./FooterTab";
+import { TravelFairPromo } from "./Promo";
+import SwiperImages, { SwiperPromoImages } from "./SwiperImages";
 
 export {
   ImageSlider,
+  SwiperImages,
+  SwiperPromoImages,
   Carousel,
   Card,
   Iklan,
@@ -21,7 +25,9 @@ export {
   AlertNotification,
   CoverImage,
   Header,
+  HeaderTravelFair,
   Money,
   Menu,
   FooterTab,
+  TravelFairPromo,
 };

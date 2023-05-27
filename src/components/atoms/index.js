@@ -1,5 +1,6 @@
 import ButtonIconOnly from "./ButtonIconOnly";
-import Gap from "./Gap/index";
+import Image from "./Image";
+import Gap from "./Gap";
 import ButtonIconText from "./ButtonIconText";
 import Input from "./Input";
 import TabContent from "./TabContent";
@@ -9,9 +10,11 @@ import { IconText, IconFacility } from "./IconText";
 import { Title, SubTitle } from "./Title";
 import ButtonPill from "./Button";
 import Divide from "./Divide";
+import ArrowBackScreen from "./ArrowBackScreen";
 
 export {
   Gap,
+  Image,
   Input,
   ButtonIconOnly,
   ButtonIconText,
@@ -24,4 +27,5 @@ export {
   SubTitle,
   ButtonPill,
   Divide,
+  ArrowBackScreen,
 };

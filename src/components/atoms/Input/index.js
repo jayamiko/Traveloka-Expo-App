@@ -24,7 +24,7 @@ const Input = ({
   if (onPress) {
     return (
       <TouchableOpacity
-        style={styles.conatinerInput(
+        style={styles.containerInput(
           height,
           paddingHorizontal,
           paddingRight,
@@ -53,7 +53,7 @@ const Input = ({
 
   return (
     <View
-      style={styles.conatinerInput(
+      style={styles.containerInput(
         height,
         paddingHorizontal,
         paddingRight,
@@ -80,7 +80,7 @@ const Input = ({
 export default Input;
 
 const styles = StyleSheet.create({
-  conatinerInput: (
+  containerInput: (
     height,
     paddingHorizontal,
     paddingRight,
