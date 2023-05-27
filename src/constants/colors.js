@@ -9,7 +9,7 @@ export const colors = {
   yello: "#FAD70F",
   alto: "#DCDCDC",
   silver: "#BDBDBD",
-  concrete: "#F2F2F2",
+  concrete: "#F8F9FB",
   red: "#D7463C",
   gray: "#333333",
   abu: "#E0E0E0",

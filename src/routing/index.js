@@ -8,7 +8,13 @@ import {
   View,
   Image,
 } from "react-native";
-import { Main, Splash, StaycationDetail, Introduction } from "../screens";
+import {
+  Main,
+  Splash,
+  StaycationDetail,
+  Introduction,
+  TravelFair,
+} from "../screens";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -142,6 +148,11 @@ export const Routes = () => {
                 headerShown: true,
                 headerLeft: null,
               }}
+            />
+            <Stack.Screen
+              name="TravelFair"
+              component={TravelFair}
+              options={{ headerShown: false }}
             />
           </Stack.Navigator>
         </SafeAreaView>

@@ -63,9 +63,21 @@ export const Menu = () => {
                 <ButtonIconText
                   key={i}
                   icon={
-                    <View style={styles.smallICon(colors.concrete)}>
-                      {item.icon}
-                    </View>
+                    item.extention == ".svg" ? (
+                      <View style={styles.smallICon(colors.concrete)}>
+                        {item.icon}
+                      </View>
+                    ) : (
+                      <View style={styles.smallICon(colors.concrete)}>
+                        <Image
+                          source={item.icon}
+                          style={{
+                            width: 30,
+                            height: hp(5.5),
+                          }}
+                        />
+                      </View>
+                    )
                   }
                   title={item.title}
                   titleColor={colors.grayMuda}
@@ -86,9 +98,21 @@ export const Menu = () => {
                 <ButtonIconText
                   key={i}
                   icon={
-                    <View style={styles.smallICon(colors.concrete)}>
-                      {item.icon}
-                    </View>
+                    item.extention == ".svg" ? (
+                      <View style={styles.smallICon(colors.concrete)}>
+                        {item.icon}
+                      </View>
+                    ) : (
+                      <View style={styles.smallICon(colors.concrete)}>
+                        <Image
+                          source={item.icon}
+                          style={{
+                            width: 30,
+                            height: hp(5.5),
+                          }}
+                        />
+                      </View>
+                    )
                   }
                   title={item.title}
                   titleColor={colors.grayMuda}
@@ -127,7 +151,7 @@ const styles = StyleSheet.create({
   },
   container_menu: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
     paddingHorizontal: wp(2),
   },
   line: {
