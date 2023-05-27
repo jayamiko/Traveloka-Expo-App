@@ -2,16 +2,13 @@ import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { colors, hp, wp } from "../../../constants";
 import { Gap } from "../../atoms";
+import ImageIcon from "../../atoms/Image";
 
 const Card = ({ item, onPress }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.picture}>
-        {item.external == true ? (
-          <Image source={{ uri: item.image[0] }} style={styles.image} />
-        ) : (
-          <Image source={item.image[0]} style={styles.image} />
-        )}
+        <Image source={item.image[0]} style={styles.image} />
         <View style={styles.label}></View>
         <Text style={styles.labelText}>{item.city}</Text>
       </View>
@@ -19,6 +16,11 @@ const Card = ({ item, onPress }) => {
         <Gap height={hp(1)} />
         <Text style={styles.title}>{item.name}</Text>
         <View style={styles.info}>
+          <ImageIcon
+            url={require("../../../assets/icon/png/traveloka-icon.png")}
+            width={18}
+            height={18}
+          />
           <Text style={styles.rate}>{item.rate}/10</Text>
           <Text style={styles.review}>({item.review})</Text>
         </View>
@@ -38,7 +40,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
     marginVertical: hp(1.5),
     width: wp(45),
-    height: hp(32),
+    height: hp(30),
     borderRadius: 10,
     shadowColor: "#000",
     shadowOffset: {
@@ -46,8 +48,9 @@ const styles = StyleSheet.create({
       height: 2,
     },
     shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    shadowRadius: 2,
+    elevation: 2.5,
+    overflow: "hidden",
     overflow: "hidden",
   },
   picture: {
@@ -59,7 +62,7 @@ const styles = StyleSheet.create({
   },
   label: {
     position: "absolute",
-    minWidth: 75,
+    width: 85,
     height: 22.5,
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
@@ -69,7 +72,7 @@ const styles = StyleSheet.create({
   labelText: {
     position: "absolute",
     color: colors.white,
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: "600",
     paddingHorizontal: 10,
     paddingVertical: 2.5,
@@ -80,39 +83,34 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
   },
   title: {
-    fontSize: hp(2.2),
-    textTransform: "capitalize",
+    fontSize: hp(2),
     fontWeight: "500",
   },
   info: {
     flexDirection: "row",
   },
-  title: {
-    fontSize: hp(2),
-    textTransform: "capitalize",
-    fontWeight: "500",
-  },
   rate: {
-    fontSize: hp(1.9),
+    fontSize: hp(1.6),
     color: colors.blue2,
     textTransform: "capitalize",
     fontWeight: "600",
+    marginLeft: 4,
   },
   review: {
-    fontSize: hp(1.9),
+    fontSize: hp(1.6),
     color: colors.gray,
     textTransform: "capitalize",
     marginLeft: 4,
     fontWeight: "600",
   },
   promo: {
-    fontSize: hp(1.9),
+    fontSize: hp(1.6),
     color: colors.grayMuda,
     textTransform: "capitalize",
     textDecorationLine: "line-through",
   },
   price: {
-    fontSize: hp(2.2),
+    fontSize: hp(2),
     textTransform: "capitalize",
     fontWeight: "500",
     color: colors.orange,

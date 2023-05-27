@@ -1,4 +1,5 @@
 import ImageSlider from "./ImageSlider";
+import HeaderTitle from "./HeaderTitle";
 import Carousel from "./Carousel";
 import Card from "./Card";
 import Iklan from "./Iklan";
@@ -14,6 +15,7 @@ import { TravelFairPromo } from "./Promo";
 import SwiperImages, { SwiperPromoImages } from "./SwiperImages";
 
 export {
+  HeaderTitle,
   ImageSlider,
   SwiperImages,
   SwiperPromoImages,

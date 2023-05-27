@@ -2,11 +2,10 @@ import React from "react";
 import { View, Image, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { Gap } from "../../atoms";
 import SwiperImages from "../SwiperImages";
-import { discons, hp, wp } from "../../../constants";
+import { discons, hp, worldTours, wp } from "../../../constants";
 import { BgPromo, TravelFairBanner } from "../../../assets";
 
 export function TravelFairPromo(props) {
-  console.log(props);
   return (
     <View style={styles.backgroundPromoSize}>
       <Image source={BgPromo} style={styles.backgroundPromoSize} />
@@ -15,7 +14,7 @@ export function TravelFairPromo(props) {
         <Gap height={hp(2)} />
         <SwiperImages data={discons} />
         <Gap height={hp(4)} />
-        <SwiperImages data={discons} />
+        <SwiperImages data={worldTours} />
         <View style={styles.button}>
           <TouchableOpacity
             style={styles.buttonGreen}

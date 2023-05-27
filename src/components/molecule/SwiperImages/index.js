@@ -28,7 +28,6 @@ function SwiperImages(props) {
 }
 
 export function SwiperPromoImages(props) {
-  console.log(props);
   return (
     <View key={props.title}>
       <Gap height={hp(4)} />

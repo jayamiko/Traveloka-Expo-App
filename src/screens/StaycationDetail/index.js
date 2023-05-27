@@ -12,8 +12,10 @@ import { DrawerLayout } from "react-native-gesture-handler";
 import {
   aroundPlace,
   colors,
+  comments,
   facilities,
   hp,
+  likes,
   populerPlace,
   wp,
 } from "../../constants";
@@ -106,7 +108,7 @@ const StaycationDetail = ({ route, navigation }) => {
                 {/* Category */}
                 <View style={[styles.row, { marginVertical: 4 }]}>
                   <View style={styles.tag}>
-                    <Text style={styles.tagName}>{item.category}</Text>
+                    <Text style={styles.tagName}>Hotel</Text>
                   </View>
                   <Gap width={wp(2)} />
                   {/* STARS */}
@@ -115,7 +117,7 @@ const StaycationDetail = ({ route, navigation }) => {
                 {/* Map */}
                 <View style={styles.row}>
                   <ButtonIconOnly>{/* <MapSVG /> */}</ButtonIconOnly>
-                  <Text>{item.location}</Text>
+                  <Text>Tebet, Jakarta</Text>
                 </View>
                 {/* Clean Accomodation */}
                 <View style={styles.rowStart}>
@@ -182,7 +184,7 @@ const StaycationDetail = ({ route, navigation }) => {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
               >
-                {item.likes.map((like, i) => {
+                {likes.map((like, i) => {
                   return (
                     <View key={i} style={styles.likes}>
                       <Text style={{ fontSize: 12, color: colors.blue3 }}>
@@ -201,7 +203,7 @@ const StaycationDetail = ({ route, navigation }) => {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
               >
-                {item.comments.map((comment, i) => {
+                {comments.map((comment, i) => {
                   return (
                     <View key={i} style={styles.comments}>
                       <View>

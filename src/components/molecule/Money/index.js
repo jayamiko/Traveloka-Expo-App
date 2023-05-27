@@ -33,7 +33,7 @@ export const Money = () => {
       <Gap width={wp(2.5)} />
       <View style={styles.colCenter}>
         <ButtonIconText
-          icon={<PayLaterSVG />}
+          icon={<PayLaterSVG color={colors.blue2} />}
           title={"PayLater"}
           titleColor={colors.grayMuda}
           fontWeight={"bold"}

@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Text, View, Image } from "react-native";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 import {
   Main,
   Splash,
@@ -7,13 +7,13 @@ import {
   Introduction,
   TravelFair,
 } from "../screens";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NativeBaseProvider } from "native-base";
-import { colors, hp, wp } from "../constants";
+import { colors, hp } from "../constants";
 import TabItem from "../components/atoms/TabItem";
-import { Gap, ArroBackScreen } from "../components/atoms";
+import { HeaderTitle } from "../components/molecule";
 
 const BottomTab = createBottomTabNavigator();
 
@@ -153,67 +153,6 @@ export const Routes = () => {
   );
 };
 
-function HeaderTitle({ route }) {
-  const data = getHeaderTitle(route);
-
-  const navigation = useNavigation();
-
-  const goBackPage = () => {
-    navigation.goBack();
-  };
-
-  return (
-    <View style={styles.header}>
-      <ArroBackScreen width={30} height={30} />
-      <View style={{ width: "65%", marginLeft: 8 }}>
-        <Text style={{ fontSize: 14, fontWeight: "bold", color: colors.white }}>
-          {data.name}
-          <Text
-            style={{ fontSize: 12, fontWeight: "normal", color: colors.white }}
-          >
-            {"\n"}
-            {data.location}
-          </Text>
-        </Text>
-      </View>
-      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-        <Image
-          source={require("../assets/icon/png/bookmark.png")}
-          style={{
-            width: 35,
-            height: 35,
-          }}
-        />
-        <Gap width={wp(6)} />
-        <Image
-          source={require("../assets/icon/png/treepoint.png")}
-          style={{
-            width: 20,
-            height: 35,
-          }}
-        />
-      </View>
-    </View>
-  );
-}
-
-function getHeaderTitle(route) {
-  const routeName = route.state
-    ? route.state.routes[route.state.index].name
-    : route.name;
-
-  switch (routeName) {
-    case "Home":
-      return "Home";
-    case "StaycationDetail":
-      const { name } = route.params?.item;
-      const { location } = route.params?.item;
-      return { name, location };
-    default:
-      return "Home";
-  }
-}
-
 const styles = StyleSheet.create({
   SafeAreaView: {
     flex: 1,
@@ -231,14 +170,6 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 2,
   }),
-  header: {
-    width: "100%",
-    height: 60,
-    marginTop: -45,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-start",
-  },
   containerTabItem: {
     alignItems: "center",
     backgroundColor: colors.white,

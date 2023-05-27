@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -7,7 +7,14 @@ import {
   View,
   Animated,
 } from "react-native";
-import { colors, hp, visit, wp } from "../../constants";
+import {
+  colors,
+  hotelRecomendation,
+  hotels,
+  hp,
+  visit,
+  wp,
+} from "../../constants";
 import { LinearGradient } from "expo-linear-gradient";
 import { ButtonIconOnly, Gap } from "../../components/atoms";
 import {
@@ -22,28 +29,8 @@ import ArrowRightSVG from "../../components/svgIcons/ArrowRightSVG";
 import StaggerBounce from "../../components/animations/StaggerBounce";
 
 export const Main = ({ navigation }) => {
-  const [categoryActive, setCategoryActive] = useState("Hotel");
   const animatedValue = useRef(new Animated.Value(0)).current;
   const [isScrolling, setIsScrolling] = useState(false);
-
-  const dataHotels = visit.filter((item) => item.category == "Hotel");
-  const dataXperience = visit.filter((item) => item.category == "Xperience");
-
-  const [dataFilter, setDataFilter] = useState(dataHotels);
-
-  function handleFilter(value) {
-    if (value == "Xperience") {
-      setCategoryActive("Xperience");
-      setDataFilter(dataXperience);
-    } else {
-      setDataFilter(dataHotels);
-      setCategoryActive("Hotel");
-    }
-  }
-
-  useEffect(() => {
-    handleFilter(categoryActive);
-  }, [categoryActive]);
 
   const handleScroll = (event) => {
     const { contentOffset } = event.nativeEvent;
@@ -107,56 +94,16 @@ export const Main = ({ navigation }) => {
               </View>
               <View style={styles.row}>
                 <TouchableOpacity
-                  style={[
-                    styles.tag,
-                    {
-                      backgroundColor:
-                        categoryActive == "Hotel"
-                          ? colors.blue2
-                          : colors.concrete,
-                    },
-                  ]}
-                  onPress={() => setCategoryActive("Hotel")}
+                  style={[styles.tag]}
+                  // onPress={() => setCategoryActive("Hotel")}
                 >
-                  <Text
-                    style={[
-                      styles.tagText,
-                      {
-                        color:
-                          categoryActive == "Hotel"
-                            ? colors.white
-                            : colors.blue2,
-                      },
-                    ]}
-                  >
-                    Hotel
-                  </Text>
+                  <Text style={[styles.tagText]}>Hotel</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  style={[
-                    styles.tag,
-                    {
-                      backgroundColor:
-                        categoryActive == "Xperience"
-                          ? colors.blue2
-                          : colors.concrete,
-                    },
-                  ]}
-                  onPress={() => setCategoryActive("Xperience")}
+                  style={[styles.tag]}
+                  // onPress={() => setCategoryActive("Xperience")}
                 >
-                  <Text
-                    style={[
-                      styles.tagText,
-                      {
-                        color:
-                          categoryActive == "Xperience"
-                            ? colors.white
-                            : colors.blue2,
-                      },
-                    ]}
-                  >
-                    Xperience
-                  </Text>
+                  <Text style={[styles.tagText]}>Xperience</Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -166,7 +113,7 @@ export const Main = ({ navigation }) => {
                 showsHorizontalScrollIndicator={false}
               >
                 <Gap width={wp(1.5)} />
-                {dataFilter.map((item, index) => {
+                {hotels.map((item, index) => {
                   return (
                     <Card
                       key={index}
@@ -195,7 +142,7 @@ export const Main = ({ navigation }) => {
                 showsHorizontalScrollIndicator={false}
               >
                 <Gap width={wp(1.5)} />
-                {visit.map((item, index) => {
+                {hotelRecomendation.map((item, index) => {
                   return (
                     <Card
                       key={index}
@@ -227,7 +174,7 @@ export const Main = ({ navigation }) => {
                 showsHorizontalScrollIndicator={false}
               >
                 <Gap width={wp(1.5)} />
-                {visit.map((item, index) => {
+                {hotels.map((item, index) => {
                   return (
                     <Card
                       key={index}
@@ -264,7 +211,7 @@ export const Main = ({ navigation }) => {
                 showsHorizontalScrollIndicator={false}
               >
                 <Gap width={wp(1.5)} />
-                {visit.map((item, index) => {
+                {hotels.map((item, index) => {
                   return (
                     <Card
                       key={index}
@@ -296,12 +243,12 @@ export const Main = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  page: {
-    backgroundColor: colors.white,
-  },
   container: {
     flex: 1,
     alignItems: "center",
+  },
+  page: {
+    backgroundColor: colors.white,
   },
   pageView: {
     position: "relative",
