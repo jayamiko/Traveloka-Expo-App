@@ -1,3 +1,5 @@
-import DiscHotelInter from "./discon-hotel-international.jpg";
+import DisconFrame1 from "./discon-frame-1.jpg";
+import DisconFrame2 from "./discon-frame-2.jpg";
+import DisconFrame3 from "./discon-frame-3.jpg";
 
-export { DiscHotelInter };
+export { DisconFrame1, DisconFrame2, DisconFrame3 };

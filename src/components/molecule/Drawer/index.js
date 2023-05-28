@@ -22,15 +22,15 @@ function Drawer({ item, navigation }) {
           <View style={[styles.boxRow, { width: "100%" }]}>
             <View style={[styles.boxRow, { width: "85%" }]}>
               <Image
-                source={require("../../../assets/icon/png/traveloka-icon.png")}
+                source={require("../../../assets/icon/png/bg-refund-icon.png")}
                 style={styles.iconRefund}
               />
               <Text style={styles.note}>
-                Tip: Tambah Jaminan Refund. Jika pesanan harus dibatalkan, Anda
-                tetap dapat 80% refund
+                Harus berpergian di tengah ketidakpastian? Pilih kamar dengan
+                gratis pembatalan!
               </Text>
             </View>
-            <View
+            {/* <View
               style={[
                 styles.boxCenter,
                 {
@@ -41,7 +41,7 @@ function Drawer({ item, navigation }) {
               <View style={styles.circle}>
                 <Text style={styles.questionMark}>?</Text>
               </View>
-            </View>
+            </View> */}
           </View>
         </View>
       </View>
@@ -49,10 +49,11 @@ function Drawer({ item, navigation }) {
         <View style={styles.card}>
           <ImageSlider />
           <View style={styles.cardInfo}>
-            <Text style={styles.superior}>Superior</Text>
+            <Text style={styles.nameBed}>Grand Delux King</Text>
             <IconText
-              iconSource={require("../../../assets/icon/png/traveloka-icon-blue.png")}
+              iconSource={require("../../../assets/icon/png/rule-icon.png")}
               text="37.0 m2 - Dengan Bathub"
+              styleIcon={{ width: 32, height: 36 }}
               color={colors.black}
               fontSize={11}
             />
@@ -61,12 +62,12 @@ function Drawer({ item, navigation }) {
             <View style={styles.alertContainer}>
               <View style={styles.alertIcon}>
                 <Image
-                  style={styles.iconRefund}
-                  source={require("../../../assets/icon/png/traveloka-icon.png")}
+                  style={{ width: 28, height: 36 }}
+                  source={require("../../../assets/icon/png/refund-icon.png")}
                 />
               </View>
-              <Text style={{ color: colors.blue2, fontSize: 12 }}>
-                Opsi jaminan Refund tersedia
+              <Text style={{ color: "#00885A", fontSize: 12 }}>
+                Gratis Pembatalan sebelum 03 Jun 13:00
               </Text>
             </View>
             <View
@@ -77,33 +78,32 @@ function Drawer({ item, navigation }) {
                 },
               ]}
             >
-              <Text style={styles.title}>Superior Room Only</Text>
+              <Text style={styles.title}>Grand Deluxe King Room Only</Text>
               <TouchableOpacity>
-                <Text style={{ color: colors.blue4, fontWeight: "bold" }}>
+                <Text style={{ color: colors.blue3, fontWeight: "700" }}>
                   LIHAT DETAIL
                 </Text>
               </TouchableOpacity>
             </View>
             <View>
               <IconText
-                iconSource={require("../../../assets/icon/png/traveloka-icon-blue.png")}
+                iconSource={require("../../../assets/icon/png/guest-icon.png")}
                 text="2 tamu/kamar"
                 color={colors.black}
                 fontSize={11}
               />
               <IconText
-                iconSource={require("../../../assets/icon/png/traveloka-icon-blue.png")}
+                iconSource={require("../../../assets/icon/png/bed-icon.png")}
                 text="1 double bed atau 2 single bed"
                 color={colors.black}
                 fontSize={11}
               />
             </View>
-            <View style={{ marginTop: 10 }}>
+            <View style={{ marginTop: 8 }}>
               <View style={styles.boxRowBetween}>
                 <IconText
-                  iconSource={require("../../../assets/icon/png/traveloka-icon-blue.png")}
-                  text="Sarapan Gratis"
-                  color={colors.green}
+                  iconSource={require("../../../assets/icon/png/not-breakfest-icon.png")}
+                  text="Tidak termasuk sarapan"
                   fontSize={11}
                 />
                 <Text style={[styles.lineTrought, styles.textDescription]}>
@@ -112,25 +112,25 @@ function Drawer({ item, navigation }) {
               </View>
               <View style={styles.boxRowBetween}>
                 <IconText
-                  iconSource={require("../../../assets/icon/png/traveloka-icon-blue.png")}
-                  text="Tidak Bisa Refund"
-                  color={colors.black}
+                  iconSource={require("../../../assets/icon/png/refund-icon.png")}
+                  text="Pembatalan Gratis"
+                  color={colors.green}
                   fontSize={11}
                 />
                 <Text style={styles.price}>{item.price}</Text>
               </View>
               <View style={styles.boxRowBetween}>
                 <IconText
-                  iconSource={require("../../../assets/icon/png/traveloka-icon-blue.png")}
-                  text="Tidak Bisa Reschdule"
-                  color={colors.black}
+                  iconSource={require("../../../assets/icon/png/reschdule-icon.png")}
+                  text="Bisa Reschdule"
+                  color={colors.green}
                   fontSize={11}
                 />
                 <Text style={styles.textDescription}>/kamar/malam</Text>
               </View>
               <View style={styles.boxRowBetween}>
                 <IconText
-                  iconSource={require("../../../assets/icon/png/traveloka-icon-blue.png")}
+                  iconSource={require("../../../assets/icon/png/wifi-icon.png")}
                   text="WiFi Gratis"
                   color={colors.green}
                   fontSize={11}
@@ -156,7 +156,7 @@ function Drawer({ item, navigation }) {
                   </TouchableOpacity>
                   <View style={styles.boxRow}>
                     <Image
-                      source={require("../../../assets/icon/png/traveloka-icon-blue.png")}
+                      source={require("../../../assets/icon/png/coin-icon.png")}
                       style={styles.icon}
                     />
                     <Text style={styles.smallText}>
@@ -233,8 +233,8 @@ const styles = StyleSheet.create({
   },
   note: {
     color: colors.white,
-    marginHorizontal: wp(2),
-    fontSize: 12,
+    marginHorizontal: wp(3),
+    fontSize: 14,
   },
   questionMark: {
     fontSize: 10,
@@ -259,20 +259,21 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: wp(2),
   },
-  superior: {
+  nameBed: {
     fontSize: 16,
+    marginVertical: 5,
     color: colors.black,
     fontWeight: "500",
   },
   icon: {
     width: 16,
-    height: hp(2.5),
+    height: hp(3),
     marginRight: 8,
   },
   iconRefund: {
     position: "relative",
-    width: 16,
-    height: hp(3),
+    width: 26,
+    height: hp(6),
   },
   text: {
     fontSize: 12,
@@ -280,11 +281,11 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   alertContainer: {
-    width: "65%",
+    width: "80%",
     flexDirection: "row",
-    backgroundColor: "#D8F2FF",
+    backgroundColor: "#E8FDF4",
     borderWidth: 0.5,
-    borderColor: colors.blue2,
+    borderColor: "#00885A",
     borderRadius: 8,
     alignItems: "center",
   },

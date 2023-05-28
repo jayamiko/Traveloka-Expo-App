@@ -88,13 +88,6 @@ const StaycationDetail = ({ route, navigation }) => {
             {/* IDENTITY */}
             <View style={styles.info}>
               <View style={styles.identity}>
-                <IconText
-                  iconSource={require("../../assets/icon/png/traveloka-icon-blue.png")}
-                  text="Traveloka Preferred Partner"
-                  color={colors.blue4}
-                  fontSize={12}
-                  fontWeight="600"
-                />
                 {/* Title */}
                 <View style={styles.title}>
                   <Title text={item.name} />
@@ -120,6 +113,13 @@ const StaycationDetail = ({ route, navigation }) => {
                   <MapSVG color={colors.abuTua} />
                   <Text style={{ marginLeft: wp(2) }}>Tebet, Jakarta</Text>
                 </View>
+                <IconText
+                  iconSource={require("../../assets/icon/png/trofi-icon.png")}
+                  text="Pemenang Traveloka Hotel Awards 2019: Kebersihan T..."
+                  color={colors.black}
+                  fontSize={12}
+                  fontWeight="400"
+                />
                 {/* Clean Accomodation */}
                 <View style={styles.rowStart}>
                   <Image
@@ -251,7 +251,6 @@ const StaycationDetail = ({ route, navigation }) => {
             <View style={styles.location}>
               <SubTitle text="Lokasi" />
               <Map />
-
               {/* Property Area */}
               <TabView
                 navigationState={{ index, routes }}
@@ -385,17 +384,16 @@ const StaycationDetail = ({ route, navigation }) => {
               <SubTitle text="Deskripsi" />
               <View>
                 <Text style={[styles.textGray, { paddingVertical: hp(1) }]}>
-                  Lumire Hotel & Convention Center adalah hotel di lokasi yang
-                  baik, tepatnya berada di Senen
+                  Wyndham Casablanca Jakarta berada di Casablanca.
                 </Text>
                 <Text style={[styles.textGray, { paddingVertical: hp(1) }]}>
-                  Resepsionis siap 24 Jam untuk melayani proses check-in dan
-                  kebutuhan Anda yang lain. Jangan ragu untuk menghubungi
-                  resepsionis, kami siap melayani Anda.
+                  Resepsionis siap 24 jam untuk melayani proses check-in,
+                  check-out dan kebutuhan Anda yang lain. Jangan ragu untuk
+                  menghubungi resepsionis, kami siap melayani Anda
                 </Text>
                 <Text style={[styles.textGray, { paddingVertical: hp(1) }]}>
-                  WiFi tersedia di seluruh area publik properti untuk membantu
-                  Anda tetao terhubung dengan keluarga dan teman
+                  WiFi tersedia di seluruh area publik properti intuk membantu
+                  Anda tetap terhubung dengan keluarga dan teman
                 </Text>
               </View>
               <TouchableOpacity>
@@ -556,7 +554,7 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.abuMuda,
   },
   location: {
-    height: 650,
+    height: 675,
     marginHorizontal: wp(2),
     paddingVertical: hp(2),
     borderBottomWidth: 1,

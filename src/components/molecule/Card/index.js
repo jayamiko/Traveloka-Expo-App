@@ -3,22 +3,38 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { colors, hp, wp } from "../../../constants";
 import { Gap } from "../../atoms";
 import ImageIcon from "../../atoms/Image";
+import MapSVG from "../../svgIcons/MapSVG";
 
-const Card = ({ item, onPress }) => {
+const Card = ({ item, labelPromo = false, labelText, widthlabel, onPress }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.picture}>
         <Image source={item.image[0]} style={styles.image} />
         <View style={styles.boxLabel}>
-          <View>
-            <View style={styles.label}></View>
-            <Text style={styles.labelText}>{item.city}</Text>
+          <View style={styles.rowBetween}>
+            <View>
+              <View style={styles.label}></View>
+              <Text style={styles.labelText}>{item.city}</Text>
+            </View>
+            <View>
+              <ImageIcon
+                url={require("../../../assets/icon/png/bookmark.png")}
+                width={32}
+                height={32}
+              />
+            </View>
           </View>
-          <ImageIcon
-            url={require("../../../assets/icon/png/bookmark.png")}
-            width={32}
-            height={32}
-          />
+          {labelPromo && (
+            <View style={styles.rowEnd}>
+              <View style={{ marginVertical: 4 }}>
+                <View style={[styles.labelPromo, { width: widthlabel }]}></View>
+                <Text style={styles.labelPromoText}>
+                  {String.fromCharCode(0x26a1)}
+                  {labelText}
+                </Text>
+              </View>
+            </View>
+          )}
         </View>
       </View>
       <View style={styles.contentText}>
@@ -56,6 +72,16 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
   },
+  rowBetween: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  rowEnd: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "center",
+  },
   picture: {
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
@@ -70,16 +96,23 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: "100%",
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "col",
     justifyContent: "space-between",
+    height: "100%",
   },
   label: {
     width: 85,
-    height: 20,
+    height: 25,
     borderTopRightRadius: 5,
     borderBottomRightRadius: 5,
     backgroundColor: colors.black,
     opacity: 0.5,
+  },
+  labelPromo: {
+    height: 25,
+    borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 10,
+    backgroundColor: colors.orange,
   },
   labelText: {
     position: "absolute",
@@ -87,7 +120,16 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: "600",
     paddingHorizontal: 10,
-    paddingVertical: 2.5,
+    paddingVertical: 4,
+    height: 20,
+  },
+  labelPromoText: {
+    position: "absolute",
+    color: colors.white,
+    fontSize: 12,
+    fontWeight: "700",
+    paddingHorizontal: 10,
+    paddingVertical: 4,
     height: 25,
   },
   contentText: {

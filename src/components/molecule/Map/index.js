@@ -8,6 +8,7 @@ function Map() {
       style={{
         width: "100%",
         height: 240,
+        marginVertical: 8,
       }}
     />
   );

@@ -3,11 +3,14 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import { colors, hp, wp } from "../../../constants";
 import { Gap } from "../../atoms";
 
-function Iklan({ title, sponsor, sponsorName, image }) {
+function Iklan({ title, emoji, sponsor, sponsorName, image }) {
   return (
     <View style={styles.hotel}>
       <View style={styles.column}>
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title}>
+          {title}
+          {emoji && emoji}
+        </Text>
         {sponsor && (
           <Text style={styles.sponsor}>Disponsori oleh {sponsorName}</Text>
         )}

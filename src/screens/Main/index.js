@@ -8,6 +8,7 @@ import {
   Animated,
 } from "react-native";
 import {
+  atractions,
   colors,
   hotelCountries,
   hotelRecomendation,
@@ -92,7 +93,10 @@ export const Main = ({ navigation }) => {
             {/* XPERIENCE & HOTEL FILTER */}
             <View style={styles.hotel}>
               <View style={styles.rowBetween}>
-                <Text style={styles.title}>Lihat lagi yang Anda minati</Text>
+                <Text style={styles.title}>
+                  Lihat lagi yang Anda minati{" "}
+                  {String.fromCharCode(0xd83d, 0xdc40)}
+                </Text>
                 <ButtonIconOnly>
                   <ArrowRightSVG />
                 </ButtonIconOnly>
@@ -201,6 +205,7 @@ export const Main = ({ navigation }) => {
                   {hotelCountries.map((country, i) => {
                     return (
                       <TouchableOpacity
+                        key={i}
                         style={[
                           styles.tag,
                           {
@@ -241,6 +246,9 @@ export const Main = ({ navigation }) => {
                     <Card
                       key={index}
                       item={item}
+                      labelPromo={true}
+                      widthlabel={135}
+                      labelText="Harga Terendah"
                       onPress={() =>
                         navigation.navigate("StaycationDetail", {
                           item: item,
@@ -253,7 +261,7 @@ export const Main = ({ navigation }) => {
             </View>
             <ButtonTravelFairSingapura />
             <Gap height={hp(2)} />
-            {/* ATRACTION VISIT */}
+            {/* ATRACTION IN THE WORLD */}
             <View style={styles.hotel}>
               <View style={styles.rowBetween}>
                 <Text style={styles.title}>Jelajahi Keseruan Luar Negeri</Text>
@@ -307,6 +315,9 @@ export const Main = ({ navigation }) => {
                     <Card
                       key={index}
                       item={item}
+                      labelPromo={true}
+                      widthlabel={110}
+                      labelText="Hemat 25%"
                       onPress={() =>
                         navigation.navigate("StaycationDetail", {
                           item: item,
@@ -332,7 +343,7 @@ export const Main = ({ navigation }) => {
                 showsHorizontalScrollIndicator={false}
               >
                 <Gap width={wp(1.5)} />
-                {hotels.map((item, index) => {
+                {atractions.map((item, index) => {
                   return (
                     <Card
                       key={index}
@@ -379,6 +390,7 @@ export const Main = ({ navigation }) => {
             <Gap height={hp(2)} />
             <Iklan
               title="Super Pesta Points!"
+              emoji={`\u{1F973}`}
               sponsor={false}
               image={require("../../assets/promo/pesta-point.jpg")}
             />

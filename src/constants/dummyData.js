@@ -402,28 +402,28 @@ export const comments = [
 
 export const aroundPlace = [
   {
-    place: "Plaza Atrium",
-    category: "Toko & Hadiah",
-    icon: require("../assets/icon/png/totebag-icon.png"),
-    distance: "129 m",
-  },
-  {
-    place: "Taman Pasar Senen",
-    category: "Pusat Transportasi",
-    icon: require("../assets/icon/png/bus-icon.png"),
-    distance: "189 m",
-  },
-  {
-    place: "Melawai Building",
+    place: "Kota Ksablanca Office 88",
     category: "Bisnis",
     icon: require("../assets/icon/png/bag-icon.png"),
-    distance: "307 m",
+    distance: "210 m",
   },
   {
-    place: "RSPAD Gatot Subroto",
+    place: "Mall Kota Kasablanca",
+    category: "Toko & Hadiah",
+    icon: require("../assets/icon/png/totebag-icon.png"),
+    distance: "372 m",
+  },
+  {
+    place: "Rumah Sakit Metropolitan Medical Centre",
     category: "Layanan Publik",
     icon: require("../assets/icon/png/health-icon.png"),
-    distance: "361 m",
+    distance: "977 m",
+  },
+  {
+    place: "Halte Kecamatan Tebet",
+    category: "Pusat Transportasi",
+    icon: require("../assets/icon/png/bus-icon.png"),
+    distance: "997 m",
   },
 ];
 
@@ -432,25 +432,25 @@ export const populerPlace = [
     place: "Stasiun Gambir",
     category: "Pusat Transportasi",
     icon: require("../assets/icon/png/train-icon.png"),
-    distance: "1,08 km",
-  },
-  {
-    place: "Taman Impian Jaya Ancol",
-    category: "Aktivitas & Permainan",
-    icon: require("../assets/icon/png/video-icon.png"),
-    distance: "5,61 km",
-  },
-  {
-    place: "Dunia Fantasi (Dufan)",
-    category: "Aktivitas & Permainan",
-    icon: require("../assets/icon/png/video-icon.png"),
-    distance: "5,70 km",
+    distance: "5,42 km",
   },
   {
     place: "Bandar Udara Internasional Halim Perdana...",
     category: "Pusat Transportasi",
     icon: require("../assets/icon/png/plane-icon.png"),
-    distance: "11,53 km",
+    distance: "7,34 km",
+  },
+  {
+    place: "Taman Impian Jaya Ancol",
+    category: "Aktivitas & Permainan",
+    icon: require("../assets/icon/png/video-icon.png"),
+    distance: "11,01 km",
+  },
+  {
+    place: "Dunia Fantasi (Dufan)",
+    category: "Aktivitas & Permainan",
+    icon: require("../assets/icon/png/video-icon.png"),
+    distance: "11,07 km",
   },
 ];
 
@@ -504,12 +504,10 @@ export const hotelCountries = [
   "Asia Timur",
 ];
 
-export const discons = [
-  require("../assets/frames/discont/discon-hotel-international.jpg"),
-  require("../assets/frames/discont/discon-hotel-international.jpg"),
-  require("../assets/frames/discont/discon-hotel-international.jpg"),
-  require("../assets/frames/discont/discon-hotel-international.jpg"),
-  require("../assets/frames/discont/discon-hotel-international.jpg"),
+export const disconframes = [
+  require("../assets/frames/discont/discon-frame-1.jpg"),
+  require("../assets/frames/discont/discon-frame-2.jpg"),
+  require("../assets/frames/discont/discon-frame-3.jpg"),
 ];
 
 export const worldTours = [
@@ -686,5 +684,38 @@ export const travelFairPromo = [
       />
     ),
     data: bankTicket,
+  },
+];
+
+export const atractions = [
+  {
+    id: "1",
+    name: "Tiket Dunia Fantasi (Dufan) Ancol",
+    city: "Ancol",
+    image: [require("../assets/atractions/dunia-fantasi.jpg")],
+    normalPrice: "Rp. 200.000",
+    price: "Rp 187.200",
+    review: 12225,
+    rate: 9.0,
+  },
+  {
+    id: "2",
+    name: "Trans Studio Bandung",
+    city: "Bandung",
+    image: [require("../assets/atractions/tsm-bandung.jpg")],
+    normalPrice: "Rp. 200.000",
+    price: "Rp 141.000",
+    review: 5535,
+    rate: 8.6,
+  },
+  {
+    id: "3",
+    name: "Tiket Bali Zoo",
+    city: "Ubud",
+    image: [require("../assets/atractions/bali-zoo.jpg")],
+    normalPrice: "Rp. 140.000",
+    price: "Rp 112.000",
+    review: 3253,
+    rate: 8.7,
   },
 ];

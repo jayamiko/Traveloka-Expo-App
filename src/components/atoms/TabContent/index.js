@@ -27,8 +27,10 @@ function TabContent({ data }) {
               </View>
               <Gap width={wp(2)} />
               <View style={{ flexDirection: "column" }}>
-                <Text style={{ fontWeight: "600" }}>{item.place}</Text>
-                <Text style={{ fontSize: 12 }}>{item.category}</Text>
+                <Text style={{ fontSize: 13, fontWeight: "600" }}>
+                  {item.place}
+                </Text>
+                <Text style={{ fontSize: 11 }}>{item.category}</Text>
               </View>
             </View>
             <View>
