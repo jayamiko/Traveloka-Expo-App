@@ -6,6 +6,7 @@ import {
   StaycationDetail,
   Introduction,
   TravelFair,
+  SplashProfile,
 } from "../screens";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -123,11 +124,11 @@ export const Routes = () => {
               component={Splash}
               options={{ headerShown: false }}
             />
-            {/* <Stack.Screen
+            <Stack.Screen
               name="SplashProfile"
-              component={ProfileScreen}
+              component={SplashProfile}
               options={{ headerShown: false }}
-            /> */}
+            />
             <Stack.Screen
               name="Introduction"
               component={Introduction}
