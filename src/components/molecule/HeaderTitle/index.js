@@ -34,7 +34,7 @@ function HeaderTitle({ route }) {
             style={{ fontSize: 12, fontWeight: "normal", color: colors.white }}
           >
             {"\n"}
-            DKI Jakarta
+            Tebet, Jakarta
           </Text>
         </Text>
       </View>

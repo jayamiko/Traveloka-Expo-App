@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
   iklanBanner: {
     width: "100%",
-    height: 150,
+    height: 190,
     borderRadius: 6,
   },
 });

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { View, Text, Animated, Easing, StyleSheet, Image } from "react-native";
 import { colors } from "../../../constants";
 
-const StaggerBounce = ({ animatedValue }) => {
+const StaggerBounce = ({ animatedValue, text }) => {
   useEffect(() => {
     startAnimation();
   }, []);
@@ -45,7 +45,7 @@ const StaggerBounce = ({ animatedValue }) => {
           source={require("../../../assets/icon/png/arrow-back.png")}
           style={styles.arrow}
         />
-        <Text style={styles.text}>Selengkapnya</Text>
+        <Text style={styles.text}>{text ?? "Selengkapnya"}</Text>
       </Animated.View>
     </View>
   );
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   animation: {
     position: "absolute",
     bottom: 0,
-    width: 160,
+    width: 200,
     height: 40,
     flexDirection: "row",
     justifyContent: "center",

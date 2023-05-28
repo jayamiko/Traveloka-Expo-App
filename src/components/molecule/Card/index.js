@@ -9,8 +9,17 @@ const Card = ({ item, onPress }) => {
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.picture}>
         <Image source={item.image[0]} style={styles.image} />
-        <View style={styles.label}></View>
-        <Text style={styles.labelText}>{item.city}</Text>
+        <View style={styles.boxLabel}>
+          <View>
+            <View style={styles.label}></View>
+            <Text style={styles.labelText}>{item.city}</Text>
+          </View>
+          <ImageIcon
+            url={require("../../../assets/icon/png/bookmark.png")}
+            width={32}
+            height={32}
+          />
+        </View>
       </View>
       <View style={styles.contentText}>
         <Gap height={hp(1)} />
@@ -35,37 +44,40 @@ export default Card;
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 5,
+    borderRadius: 10,
     backgroundColor: colors.white,
     marginHorizontal: 8,
     marginVertical: hp(1.5),
     width: wp(45),
     height: hp(30),
-    borderRadius: 10,
+    elevation: 4,
     shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 2,
-    elevation: 2.5,
-    overflow: "hidden",
-    overflow: "hidden",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
   },
   picture: {
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
     height: "50%",
+    overflow: "hidden",
   },
   image: {
     width: "100%",
     height: "100%",
   },
-  label: {
+  boxLabel: {
     position: "absolute",
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  label: {
     width: 85,
-    height: 22.5,
-    borderTopRightRadius: 10,
-    borderBottomRightRadius: 10,
+    height: 20,
+    borderTopRightRadius: 5,
+    borderBottomRightRadius: 5,
     backgroundColor: colors.black,
     opacity: 0.5,
   },

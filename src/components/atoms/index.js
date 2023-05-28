@@ -8,7 +8,7 @@ import TabItem from "./TabItem";
 import Stars from "./Stars";
 import { IconText, IconFacility } from "./IconText";
 import { Title, SubTitle } from "./Title";
-import ButtonPill from "./Button";
+import { ButtonPill, ButtonTravelFairSingapura } from "./Button";
 import Divide from "./Divide";
 import ArrowBackScreen from "./ArrowBackScreen";
 
@@ -18,6 +18,7 @@ export {
   Input,
   ButtonIconOnly,
   ButtonIconText,
+  ButtonTravelFairSingapura,
   TabItem,
   TabContent,
   Stars,

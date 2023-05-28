@@ -9,14 +9,18 @@ import {
 } from "react-native";
 import {
   colors,
+  hotelCountries,
   hotelRecomendation,
   hotels,
   hp,
-  visit,
   wp,
 } from "../../constants";
 import { LinearGradient } from "expo-linear-gradient";
-import { ButtonIconOnly, Gap } from "../../components/atoms";
+import {
+  ButtonIconOnly,
+  ButtonTravelFairSingapura,
+  Gap,
+} from "../../components/atoms";
 import {
   Card,
   Money,
@@ -27,6 +31,7 @@ import {
 } from "../../components/molecule";
 import ArrowRightSVG from "../../components/svgIcons/ArrowRightSVG";
 import StaggerBounce from "../../components/animations/StaggerBounce";
+import ImageIcon from "../../components/atoms/Image";
 
 export const Main = ({ navigation }) => {
   const animatedValue = useRef(new Animated.Value(0)).current;
@@ -92,18 +97,22 @@ export const Main = ({ navigation }) => {
                   <ArrowRightSVG />
                 </ButtonIconOnly>
               </View>
-              <View style={styles.row}>
+              <View style={[styles.row, { marginVertical: 6 }]}>
                 <TouchableOpacity
-                  style={[styles.tag]}
+                  style={[styles.tag, { backgroundColor: colors.blue2 }]}
                   // onPress={() => setCategoryActive("Hotel")}
                 >
-                  <Text style={[styles.tagText]}>Hotel</Text>
+                  <Text style={[styles.tagText, { color: colors.white }]}>
+                    Hotel
+                  </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  style={[styles.tag]}
+                  style={[styles.tag, { backgroundColor: colors.concrete }]}
                   // onPress={() => setCategoryActive("Xperience")}
                 >
-                  <Text style={[styles.tagText]}>Xperience</Text>
+                  <Text style={[styles.tagText, { color: colors.blue2 }]}>
+                    Xperience
+                  </Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -160,7 +169,156 @@ export const Main = ({ navigation }) => {
             <Gap height={hp(1)} />
             {/* TRAVEL FAIR PROMO BANNER */}
             <TravelFairPromo navigation={navigation} />
-            <Gap height={hp(1)} />
+            <Gap height={hp(2)} />
+            {/* TRAVEL FAIR BANNER */}
+            <Iklan
+              title="Travel Fair Goes to Kokas"
+              sponsor={false}
+              image={require("../../assets/promo/ticket-kokas.jpg")}
+            />
+            <Gap height={hp(2)} />
+            <Iklan
+              title="Garuda Online Travel Fair"
+              sponsor={false}
+              image={require("../../assets/promo/plain-ticket/promo-tiket-pesawat-3.jpg")}
+            />
+            <Gap height={hp(4)} />
+            {/* HOTEL IN THE WORLD */}
+            <View style={styles.hotel}>
+              <View style={[styles.row, { alignItems: "center" }]}>
+                <Text style={styles.title}>Beragam hotel di seluruh</Text>
+                <ImageIcon
+                  url={require("../../assets/icon/png/earth.png")}
+                  width={32}
+                  height={32}
+                />
+              </View>
+              <View style={[styles.row, { marginVertical: 6 }]}>
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                >
+                  {hotelCountries.map((country, i) => {
+                    return (
+                      <TouchableOpacity
+                        style={[
+                          styles.tag,
+                          {
+                            backgroundColor:
+                              country == "Singapura"
+                                ? colors.blue2
+                                : colors.concrete,
+                          },
+                        ]}
+                      >
+                        <Text
+                          style={[
+                            styles.tagText,
+                            {
+                              color:
+                                country == "Singapura"
+                                  ? colors.white
+                                  : colors.blue2,
+                            },
+                          ]}
+                        >
+                          {country}
+                        </Text>
+                      </TouchableOpacity>
+                    );
+                  })}
+                </ScrollView>
+              </View>
+            </View>
+            <View>
+              <ScrollView
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+              >
+                <Gap width={wp(1.5)} />
+                {hotels.map((item, index) => {
+                  return (
+                    <Card
+                      key={index}
+                      item={item}
+                      onPress={() =>
+                        navigation.navigate("StaycationDetail", {
+                          item: item,
+                        })
+                      }
+                    />
+                  );
+                })}
+              </ScrollView>
+            </View>
+            <ButtonTravelFairSingapura />
+            <Gap height={hp(2)} />
+            {/* ATRACTION VISIT */}
+            <View style={styles.hotel}>
+              <View style={styles.rowBetween}>
+                <Text style={styles.title}>Jelajahi Keseruan Luar Negeri</Text>
+                <ButtonIconOnly icon={<ArrowRightSVG />} />
+              </View>
+              <View style={[styles.row, { marginVertical: 6 }]}>
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                >
+                  {hotelCountries.map((country, i) => {
+                    return (
+                      <TouchableOpacity
+                        style={[
+                          styles.tag,
+                          {
+                            backgroundColor:
+                              country == "Singapura"
+                                ? colors.blue2
+                                : colors.concrete,
+                          },
+                        ]}
+                      >
+                        <Text
+                          style={[
+                            styles.tagText,
+                            {
+                              color:
+                                country == "Singapura"
+                                  ? colors.white
+                                  : colors.blue2,
+                            },
+                          ]}
+                        >
+                          {country}
+                        </Text>
+                      </TouchableOpacity>
+                    );
+                  })}
+                </ScrollView>
+              </View>
+            </View>
+            <View>
+              <ScrollView
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+              >
+                <Gap width={wp(1.5)} />
+                {hotels.map((item, index) => {
+                  return (
+                    <Card
+                      key={index}
+                      item={item}
+                      onPress={() =>
+                        navigation.navigate("StaycationDetail", {
+                          item: item,
+                        })
+                      }
+                    />
+                  );
+                })}
+              </ScrollView>
+            </View>
+            <ButtonTravelFairSingapura />
+            <Gap height={hp(2)} />
             {/* ATRACTION VISIT */}
             <View style={styles.hotel}>
               <View style={styles.rowBetween}>
@@ -190,18 +348,10 @@ export const Main = ({ navigation }) => {
               </ScrollView>
             </View>
             <Gap height={hp(2)} />
-            {/* IKLAN BUAVITA */}
-            <Iklan
-              title="Saatnya Mudik, Saatnya Buavita"
-              sponsor={true}
-              sponsorName="Buavita"
-              image={require("../../assets/ilustrasi/iklan-buavita.jpg")}
-            />
-            <Gap height={hp(2)} />
             {/* PLANE VISIT */}
             <View style={styles.hotel}>
               <View style={styles.rowBetween}>
-                <Text style={styles.title}>Pilihan penerbangan untuk Anda</Text>
+                <Text style={styles.title}>Pilihan Penerbangan untuk Anda</Text>
                 <ButtonIconOnly icon={<ArrowRightSVG />} />
               </View>
             </View>
@@ -226,18 +376,21 @@ export const Main = ({ navigation }) => {
                 })}
               </ScrollView>
             </View>
-            <Gap height={hp(1)} />
-            {/* IKLAN TOUR */}
+            <Gap height={hp(2)} />
             <Iklan
-              title="Seru-Seruan di Singapura & Mal..."
+              title="Super Pesta Points!"
               sponsor={false}
-              image={require("../../assets/ilustrasi/iklan-tour.jpg")}
+              image={require("../../assets/promo/pesta-point.jpg")}
             />
-            <Gap height={hp(1)} />
           </View>
         </ScrollView>
       </View>
-      {!isScrolling && <StaggerBounce animatedValue={animatedValue} />}
+      {!isScrolling && (
+        <StaggerBounce
+          animatedValue={animatedValue}
+          text="Terkini dari Traveloka"
+        />
+      )}
     </ScrollView>
   );
 };

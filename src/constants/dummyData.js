@@ -8,17 +8,6 @@ import PlainSVG from "../components/svgIcons/PlainSVG";
 import ShuttleSVG from "../components/svgIcons/ShuttleSVG";
 import { colors } from "./colors";
 
-const horisonUltimaBandung =
-  "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10000295-800x600-FIT_AND_TRIM-ca254b8bf5c176d1d09735c857323456.jpeg?_src=imagekit&tr=dpr-3,c-at_max,h-344,q-40,w-193";
-const elHotelRoyaleBandung =
-  "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10000295-800x600-FIT_AND_TRIM-ca254b8bf5c176d1d09735c857323456.jpeg?_src=imagekit&tr=dpr-3,c-at_max,h-344,q-40,w-193";
-const horisonUltimaBekasi =
-  "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10000739-0808f33854caf4ac10c3a3b3eddded5b.jpeg?_src=imagekit&tr=dpr-3,c-at_max,h-344,q-40,w-193";
-const premebizHotelCikarang =
-  "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10000768-c2f8479bce600ae1be05770cea4cf74f.jpeg?_src=imagekit&tr=dpr-3,c-at_max,h-344,q-40,w-193";
-const ibizBandungTransStudio =
-  "https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10019962-1410x1536-FIT_AND_TRIM-23ff4b30a9b92f31d3da046c98564982.jpeg?_src=imagekit&tr=dpr-3,c-at_max,h-344,q-40,w-193";
-
 export const hotels = [
   {
     id: "1",
@@ -502,6 +491,19 @@ export const roomImages = [
   require("../assets/ilustrasi/promo-lebaran.jpg"),
 ];
 
+export const hotelCountries = [
+  "Singapura",
+  "Malaysia",
+  "Thailand",
+  "Vietnam",
+  "Filipina",
+  "Jepang",
+  "Hongkong",
+  "Korea Selatan",
+  "Australia",
+  "Asia Timur",
+];
+
 export const discons = [
   require("../assets/frames/discont/discon-hotel-international.jpg"),
   require("../assets/frames/discont/discon-hotel-international.jpg"),
@@ -526,11 +528,78 @@ export const worldTours = [
 ];
 
 export const plainTickets = [
-  require("../assets/promo/plain-ticket/plain-ticket-promo-2.jpg"),
-  require("../assets/promo/plain-ticket/plain-ticket-promo-2.jpg"),
-  require("../assets/promo/plain-ticket/plain-ticket-promo-2.jpg"),
-  require("../assets/promo/plain-ticket/plain-ticket-promo-2.jpg"),
-  require("../assets/promo/plain-ticket/plain-ticket-promo-2.jpg"),
+  require("../assets/promo/plain-ticket/promo-tiket-pesawat-1.jpg"),
+  require("../assets/promo/plain-ticket/promo-tiket-pesawat-2.jpg"),
+  require("../assets/promo/plain-ticket/promo-tiket-pesawat-3.jpg"),
+  require("../assets/promo/plain-ticket/promo-tiket-pesawat-4.jpg"),
+  require("../assets/promo/plain-ticket/promo-tiket-pesawat-5.jpg"),
+];
+
+export const hotelTickets = [
+  require("../assets/promo/hotel-ticket/promo-hotel-1.jpg"),
+  require("../assets/promo/hotel-ticket/promo-hotel-2.jpg"),
+];
+
+export const holidayStaysTicket = [
+  require("../assets/promo/hotel-ticket/promo-hotel-1.jpg"),
+  require("../assets/promo/hotel-ticket/promo-hotel-2.jpg"),
+];
+
+export const xperienceTicket = [
+  require("../assets/promo/xperience-ticket/promo-xperience-1.jpg"),
+  require("../assets/promo/xperience-ticket/promo-xperience-2.jpg"),
+  require("../assets/promo/ticket-1.jpg"),
+  require("../assets/promo/xperience-ticket/promo-xperience-3.jpg"),
+];
+
+export const payLaterTicket = [
+  require("../assets/promo/paylater-ticket/promo-paylater-1.jpg"),
+  require("../assets/promo/paylater-ticket/promo-paylater-2.jpg"),
+];
+
+export const trainTicket = [
+  require("../assets/promo/train-ticket/promo-kereta-1.jpg"),
+  require("../assets/promo/ticket-4.jpg"),
+];
+
+export const shuttleTicket = [
+  require("../assets/promo/ticket-4.jpg"),
+  require("../assets/promo/ticket-5.jpg"),
+];
+
+export const rentCarTickets = [
+  require("../assets/promo/rent-car-ticket/promo-rental-mobil-1.jpg"),
+  require("../assets/promo/rent-car-ticket/promo-rental-mobil-2.jpg"),
+];
+
+export const taxiTickets = [
+  require("../assets/promo/ticket-4.jpg"),
+  require("../assets/promo/taxi-ticket/promo-taxi-1.jpg"),
+];
+
+export const shuttleBusTickets = [
+  require("../assets/promo/bus-shuttle-ticket/promo-bus-shuttle-1.jpg"),
+  require("../assets/promo/bus-shuttle-ticket/promo-bus-shuttle-2.jpg"),
+];
+
+export const insuranceTicket = [
+  require("../assets/promo/ticket-6.jpg"),
+  require("../assets/promo/ticket-7.jpg"),
+];
+
+export const paymentTicket = [
+  require("../assets/promo/ticket-8.jpg"),
+  require("../assets/promo/ticket-9.jpg"),
+];
+
+export const internetTicket = [
+  require("../assets/promo/ticket-10.jpg"),
+  require("../assets/promo/ticket-5.jpg"),
+];
+
+export const bankTicket = [
+  require("../assets/promo/ticket-11.jpg"),
+  require("../assets/promo/ticket-12.jpg"),
 ];
 
 export const travelFairPromo = [
@@ -542,64 +611,70 @@ export const travelFairPromo = [
   {
     title: "Promo Hotel",
     icon: <ImageIcon url={require("../assets/icon/png/hotel-budget.png")} />,
-    data: plainTickets,
+    data: hotelTickets,
   },
   {
     title: "Promo Holiday Stays",
     icon: <ImageIcon url={require("../assets/icon/png/stays-icon.png")} />,
-    data: plainTickets,
+    data: holidayStaysTicket,
   },
   {
     title: "Promo Xperience",
     icon: <ExperienceSVG color={colors.experience} />,
-    data: plainTickets,
+    data: xperienceTicket,
   },
   {
     title: "Promo PayLater",
     icon: <PayLaterSVG color={colors.blue4} />,
-    data: plainTickets,
+    data: payLaterTicket,
   },
   {
     title: "Promo Tiket Kereta",
     icon: <JRPassSVG />,
-    data: plainTickets,
+    data: trainTicket,
   },
   {
     title: "Promo Antar Jemput Ban...",
     icon: <ShuttleSVG />,
-    data: plainTickets,
+    data: shuttleTicket,
   },
   {
     title: "Promo Rental Mobil",
     icon: <CarSVG />,
-    data: plainTickets,
+    data: rentCarTickets,
   },
   {
     title: "Promo Taksi",
     icon: <ImageIcon url={require("../assets/icon/png/taxi-icon.png")} />,
-    data: plainTickets,
+    data: taxiTickets,
   },
   {
     title: "Promo Tiket Bus & Travel",
     icon: (
       <ImageIcon url={require("../assets/icon/png/bus-shuttle-icon.png")} />
     ),
-    data: plainTickets,
+    data: shuttleBusTickets,
   },
   {
     title: "Promo Asuransi",
     icon: <InsuranceSVG />,
-    data: plainTickets,
+    data: insuranceTicket,
   },
   {
     title: "Promo Tagihan & Isi Ulang",
     icon: <ImageIcon url={require("../assets/icon/png/document-icon.png")} />,
-    data: plainTickets,
+    data: paymentTicket,
   },
   {
     title: "Promo Pulsa & Paket Inter...",
-    icon: <ImageIcon url={require("../assets/icon/png/internet-icon.png")} />,
-    data: plainTickets,
+    icon: (
+      <ImageIcon
+        url={require("../assets/icon/png/internet-icon-blue.png")}
+        width={32}
+        height={32}
+      />
+    ),
+    data: internetTicket,
   },
   {
     title: "Promo Bank",
@@ -610,6 +685,6 @@ export const travelFairPromo = [
         height={28}
       />
     ),
-    data: plainTickets,
+    data: bankTicket,
   },
 ];

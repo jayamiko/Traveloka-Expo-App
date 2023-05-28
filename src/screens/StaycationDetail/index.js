@@ -36,6 +36,7 @@ import {
   IconFacility,
   TabContent,
 } from "../../components/atoms";
+import MapSVG from "../../components/svgIcons/MapSVG";
 
 const tabRoutes = [
   { key: "Di Sekitar Properti", title: "Di Sekitar Properti" },
@@ -116,8 +117,8 @@ const StaycationDetail = ({ route, navigation }) => {
                 </View>
                 {/* Map */}
                 <View style={styles.row}>
-                  <ButtonIconOnly>{/* <MapSVG /> */}</ButtonIconOnly>
-                  <Text>Tebet, Jakarta</Text>
+                  <MapSVG color={colors.abuTua} />
+                  <Text style={{ marginLeft: wp(2) }}>Tebet, Jakarta</Text>
                 </View>
                 {/* Clean Accomodation */}
                 <View style={styles.rowStart}>
@@ -423,6 +424,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
     alignItems: "center",
+    marginVertical: 4,
   },
   rowStart: {
     flexDirection: "row",
