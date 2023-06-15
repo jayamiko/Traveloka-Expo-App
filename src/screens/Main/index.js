@@ -10,6 +10,8 @@ import {
 import {
   atractions,
   colors,
+  foreignAtractions,
+  foreignHotels,
   hotelCountries,
   hotelRecomendation,
   hotels,
@@ -241,7 +243,7 @@ export const Main = ({ navigation }) => {
                 showsHorizontalScrollIndicator={false}
               >
                 <Gap width={wp(1.5)} />
-                {hotels.map((item, index) => {
+                {foreignHotels.map((item, index) => {
                   return (
                     <Card
                       key={index}
@@ -275,6 +277,7 @@ export const Main = ({ navigation }) => {
                   {hotelCountries.map((country, i) => {
                     return (
                       <TouchableOpacity
+                        key={i}
                         style={[
                           styles.tag,
                           {
@@ -310,7 +313,7 @@ export const Main = ({ navigation }) => {
                 showsHorizontalScrollIndicator={false}
               >
                 <Gap width={wp(1.5)} />
-                {hotels.map((item, index) => {
+                {foreignAtractions.map((item, index) => {
                   return (
                     <Card
                       key={index}
@@ -344,35 +347,6 @@ export const Main = ({ navigation }) => {
               >
                 <Gap width={wp(1.5)} />
                 {atractions.map((item, index) => {
-                  return (
-                    <Card
-                      key={index}
-                      item={item}
-                      onPress={() =>
-                        navigation.navigate("StaycationDetail", {
-                          item: item,
-                        })
-                      }
-                    />
-                  );
-                })}
-              </ScrollView>
-            </View>
-            <Gap height={hp(2)} />
-            {/* PLANE VISIT */}
-            <View style={styles.hotel}>
-              <View style={styles.rowBetween}>
-                <Text style={styles.title}>Pilihan Penerbangan untuk Anda</Text>
-                <ButtonIconOnly icon={<ArrowRightSVG />} />
-              </View>
-            </View>
-            <View>
-              <ScrollView
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-              >
-                <Gap width={wp(1.5)} />
-                {hotels.map((item, index) => {
                   return (
                     <Card
                       key={index}

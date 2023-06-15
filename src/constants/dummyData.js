@@ -719,3 +719,75 @@ export const atractions = [
     rate: 8.7,
   },
 ];
+
+export const foreignHotels = [
+  {
+    id: "1",
+    name: "Royal Plaza on Scotts",
+    city: "Orchard",
+    image: [require("../assets/hotels/royal-plaza-on-scott.jpg")],
+    normalPrice: "Rp. 4.567.428",
+    price: "Rp 3.882.330",
+    review: 3374,
+    rate: 8.8,
+  },
+  {
+    id: "2",
+    name: "MET A Space Pod @ Arab Street",
+    city: "Kampong Glam",
+    image: [require("../assets/hotels/met-a-space-pod.jpg")],
+    normalPrice: "Rp. 916.222",
+    price: "Rp. 549.733",
+    review: 78,
+    rate: 8.3,
+  },
+  {
+    id: "3",
+    name: "Check-Inn @ Little India",
+    city: "Litlle India",
+    image: [require("../assets/hotels/check-inn-india.jpg")],
+    normalPrice: "Rp. 2.733.771",
+    price: "Rp 1.038.833",
+    review: 250,
+    rate: 8.5,
+  },
+];
+
+export const foreignAtractions = [
+  {
+    id: "1",
+    name: "Gardens by the Bay",
+    city: "Marina Bay",
+    image: [require("../assets/atractions/Gardens-by-the-Bay.jpg")],
+    normalPrice: "Rp. 132.386",
+    price: "Rp 110.400",
+    review: 4261,
+    rate: 9.0,
+  },
+  {
+    id: "2",
+    name: "Singapore Bird Paradise",
+    city: "Singapore",
+    image: [require("../assets/atractions/Singapore-Bird-Paradise.jpg")],
+    normalPrice: "Rp. 132.386",
+    price: "Rp 110.400",
+    review: 4261,
+    rate: 9.0,
+  },
+  {
+    id: "3",
+    name: "Universal Studio Singapore",
+    city: "Sentosa Island",
+    image: [require("../assets/atractions/universal-studio-singapore.jpg")],
+    normalPrice: "Rp. 1.103.217",
+    price: "Rp 803.142",
+    review: 10152,
+    rate: 9.0,
+  },
+];
+
+export const rooms = [
+  require("../assets/rooms/room-1.jpg"),
+  require("../assets/rooms/room-2.jpg"),
+  require("../assets/rooms/room-3.jpg"),
+];

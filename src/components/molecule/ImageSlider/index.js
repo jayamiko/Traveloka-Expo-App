@@ -2,13 +2,13 @@ import React from "react";
 import { View } from "native-base";
 import { StyleSheet } from "react-native";
 import { SliderBox } from "react-native-image-slider-box";
-import { colors, roomImages } from "../../../constants";
+import { colors, rooms } from "../../../constants";
 
 function ImageSlider() {
   return (
     <View style={styles.carousel}>
       <SliderBox
-        images={roomImages}
+        images={rooms}
         autoplay={true}
         loop={true}
         parentWidth={375}

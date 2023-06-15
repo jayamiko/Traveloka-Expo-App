@@ -37,6 +37,7 @@ import {
   TabContent,
 } from "../../components/atoms";
 import MapSVG from "../../components/svgIcons/MapSVG";
+import ImageIcon from "../../components/atoms/Image";
 
 const tabRoutes = [
   { key: "Di Sekitar Properti", title: "Di Sekitar Properti" },
@@ -85,6 +86,23 @@ const StaycationDetail = ({ route, navigation }) => {
           <ScrollView>
             {/* COVER IMAGE */}
             <CoverImage item={item} />
+            {/* FACILITIES STORY */}
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                height: 125,
+                marginHorizontal: wp(2),
+                borderBottomWidth: 1,
+                borderBottomColor: colors.abuMuda,
+              }}
+            >
+              <ImageIcon
+                url={require("../../assets/ilustrasi/facilities-story.jpg")}
+                width={100}
+                height={100}
+              />
+            </View>
             {/* IDENTITY */}
             <View style={styles.info}>
               <View style={styles.identity}>
